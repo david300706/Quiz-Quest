@@ -1,6 +1,6 @@
 import pygame
 from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER_, QUESTION_MARK, FLAG
-from maze_main import convert_index_to_cords
+from consts import convert_index_to_cords
 
 # general setup
 pygame.init()
@@ -27,7 +27,7 @@ def draw_grid(matrix):
     """
 
     for index_x, row in enumerate(matrix):
-        for index_y, call in row:
+        for index_y, call in enumerate(row):
             coordinates = convert_index_to_cords(index_x, index_y)
 
             if call == 1:
