@@ -70,32 +70,33 @@ def get_center_position(text_surface):
     return x_pos, y_pos
 
 
-def calculate_centered_positions(WINDOW_WIDTH, WINDOW_HEIGHT, FONT_SIZE):
+def calculate_centered_positions():
     """
     Calculates the coordinates for placing 1 question and 4 answers centered vertically.
-    :param WINDOW_WIDTH: The width of the display window
-    :param WINDOW_HEIGHT: The height of the display window
-    :param FONT_SIZE: The size of the font to use for text
     :return: A dictionary with the calculated coordinates for the question and the 4 answers
     """
     # Define vertical padding between the question and the answers
     vertical_padding = 20
     question_offset = 60
 
+    move_up_offset = -100
+    move_left_offset = - 130
     question_y = (WINDOW_HEIGHT // 2) - FONT_SIZE - question_offset
     # Calculate the y position of each answer, spaced
     answer_0_y = (WINDOW_HEIGHT // 2)
     answer_1_y = answer_0_y + FONT_SIZE + vertical_padding
     answer_2_y = answer_1_y + FONT_SIZE + vertical_padding
     answer_3_y = answer_2_y + FONT_SIZE + vertical_padding
-    question_x = (WINDOW_WIDTH // 2)
+
+    # 130 IS FOR MOVING IT LEFT as much as needed
+    question_x = (WINDOW_WIDTH // 2) + move_left_offset
     answer_x = question_x
     return {
-        "question": (question_x, question_y),
-        "answer_0": (answer_x, answer_0_y),
-        "answer_1": (answer_x, answer_1_y),
-        "answer_2": (answer_x, answer_2_y),
-        "answer_3": (answer_x, answer_3_y),
+        "question": (question_x, question_y + move_up_offset),
+        "answer_0": (answer_x, answer_0_y + move_up_offset),
+        "answer_1": (answer_x, answer_1_y + move_up_offset),
+        "answer_2": (answer_x, answer_2_y + move_up_offset),
+        "answer_3": (answer_x, answer_3_y + move_up_offset),
     }
 
 
@@ -118,7 +119,7 @@ def draw_question_massage(the_number_of_question):
     """
     draw_scroll()
     questions_to_draw = list(questions.keys())
-    coordinates_of_text = calculate_centered_positions(WINDOW_WIDTH, WINDOW_HEIGHT, FONT_SIZE)
+    coordinates_of_text = calculate_centered_positions()
     draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"])
     draw_massage(questions[questions_to_draw[the_number_of_question]][0], coordinates_of_text["answer_0"])
     draw_massage(questions[questions_to_draw[the_number_of_question]][1], coordinates_of_text["answer_1"])
