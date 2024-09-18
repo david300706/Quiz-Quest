@@ -65,6 +65,6 @@ print(question_input())
 
 
 
-x, y = main_input()
+x, z = main_input()
 print(x)
-print(y)
+print(z)
