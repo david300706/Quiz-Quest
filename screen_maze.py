@@ -1,5 +1,6 @@
 import pygame
 from consts import WINDOW_WIDTH, WINDOW_HEIGHT
+from maze_main import convert_index_to_cords
 
 # general setup
 pygame.init()
@@ -17,19 +18,24 @@ def draw_white_cube(coordinates):
 def draw_grid(matrix):
     """
     draw the maze on the display_surface
-    :param matrix: a 2d matrix of 1 for black , 0 for pass or 2 for question mark
+    :param matrix: a 2d matrix of 1 for black , 0 for pass or 2 for question mark , 3 for flag
     """
-    for row in matrix:
-        for call in row:
+
+    for index_x, row in enumerate(matrix):
+        for index_y, call in row:
+            coordinates = convert_index_to_cords(index_x, index_y)
+
             if call == 1:
-                pass
+                draw_black_cube(coordinates)
             elif call == 0:
-                pass
+                draw_white_cube(coordinates)
             elif call == 2:
-                pass
+                draw_question_mark(coordinates)
+            elif call == 3:
+                draw_flag()
 
 
-def question_mark(coordinates):
+def draw_question_mark(coordinates):
     """
     draw the question mark massage on display_surface
     """
@@ -47,6 +53,10 @@ def draw_player(coordinates):
     """
     draw the player on the display_surface
     """
+    pass
+
+
+def draw_flag():
     pass
 
 
