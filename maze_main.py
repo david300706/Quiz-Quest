@@ -1,4 +1,13 @@
+import consts
+
+
 def create_maze_grid():
+    '''
+    0 = path
+    1 = block
+    2 = question
+    :return:
+    '''
     maze_grid = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                  [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
                  [1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -15,6 +24,12 @@ def create_maze_grid():
                  [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
                  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
     return maze_grid
+
+
+def convert_index_to_cords(index_x, index_y):
+    cords_y = consts.FRAME_HEIGHT * index_y
+    cords_x = consts.FRAME_WIDTH * index_x
+    return cords_x, cords_y
 
 
 for x in create_maze_grid():
