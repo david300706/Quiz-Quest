@@ -68,6 +68,7 @@ def draw_question_massage(message):
     draw_massage(message["question"][0])
     draw_massage(message["question"][1])
     draw_massage(message["question"][2])
+    draw_massage(message["question"][3])
 
 
 def draw_player(coordinates):
