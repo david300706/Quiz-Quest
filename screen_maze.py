@@ -52,7 +52,7 @@ def draw_scroll():
     display_surface.blit(SCROLL, (WINDOW_WIDTH // 2 - 300, WINDOW_HEIGHT // 2 - 300))
 
 
-def draw_massage(message):
+def draw_question_massage(message):
     """
     draw a question and the 3 answers passable on display_surface
     """
