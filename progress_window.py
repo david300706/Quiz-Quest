@@ -3,7 +3,7 @@ import pygame
 import time
 import progress_consts
 import progress_screen
-
+import maze_main
 state = {"is_window_open": True,
          "soldier_location": (0, int(progress_consts.WINDOW_WIDTH / 2)),
          "current_game": 0,
@@ -13,6 +13,7 @@ state = {"is_window_open": True,
 
 def main():
     pygame.init()
+    user_events()
     state["screen"] = progress_screen.screen_settings(progress_consts.SCREEN_SIZE)
     while state["is_window_open"]:
         user_events()
@@ -33,7 +34,9 @@ def user_events():
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
         elif event.type == pygame.KEYDOWN:
-            if event.type == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE and state["pop_up_open"]:
+                print("eeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+                maze_main.maze_main()
                 state["enter_game"] = True
 
 

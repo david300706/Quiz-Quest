@@ -99,4 +99,4 @@ def user_events():
 
 
 user_events()
-maze_main()
+# maze_main()
