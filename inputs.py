@@ -19,12 +19,15 @@ def main_input():
         if is_stop == consts.STOP_INPUT:
             add_game = False
 
+    study = []
     games_data = []
     for game in games:
         if game == consts.MAZE:
-            games_data.append(main_maze_input())
+            data, study_data = main_maze_input()
+            games_data.append(data)
+            study.append(study_data)
 
-    return games, games_data
+    return games, games_data, study_data
 
 
 
@@ -33,8 +36,7 @@ def main_input():
 
 
 def main_maze_input():
-    pass
-def question_input(): # TODO: input validation check
+    study_data = input("enter all info on the maze's subject: ")
     data = {}
     add_question = True
     while add_question:
@@ -44,13 +46,11 @@ def question_input(): # TODO: input validation check
                      "\npress enter to enter more questions: ")
         if more == consts.STOP_INPUT:
             add_question = False
-    return data
+    return data, study_data
 
 
 def question_input():
     question_list = []
-
-
     question = input(f"Hi teacher, please enter a question you would like to have in your quiz: ").lower()
     question_list.append(question)
     print('Please enter the answers you wish to have in your multiple choice question')
@@ -61,10 +61,9 @@ def question_input():
     correct_answer_num = int(input('please Enter the number of the correct answer: '))
     question_list.append(correct_answer_num - 1)
     return question_list
-print(question_input())
 
 
-
-x, z = main_input()
+x, y, z = main_input()
 print(x)
 print(z)
+print(y)
