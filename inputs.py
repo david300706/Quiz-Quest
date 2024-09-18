@@ -63,5 +63,4 @@ def question_input():
     return question_list
 
 
-games, games_data, study_info = main_input()
 
