@@ -1,18 +1,23 @@
 import pygame
-from consts import WINDOW_WIDTH, WINDOW_HEIGHT
+from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER_, QUESTION_MARK, FLAG
 from maze_main import convert_index_to_cords
 
 # general setup
 pygame.init()
 display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
+# convert
+BLACK_CUBE = BLACK_CUBE_.convert_alpha()
+WHITE_CUBE = WHITE_CUBE_.convert_alpha()
+PLAYER = PLAYER_.convert_alpha()
+
 
 def draw_black_cube(coordinates):
-    pass
+    display_surface.blit(BLACK_CUBE, coordinates)
 
 
 def draw_white_cube(coordinates):
-    pass
+    display_surface.blit(WHITE_CUBE, coordinates)
 
 
 def draw_grid(matrix):
@@ -32,14 +37,14 @@ def draw_grid(matrix):
             elif call == 2:
                 draw_question_mark(coordinates)
             elif call == 3:
-                draw_flag()
+                draw_flag(coordinates)
 
 
 def draw_question_mark(coordinates):
     """
     draw the question mark massage on display_surface
     """
-    pass
+    display_surface.blit(QUESTION_MARK, coordinates)
 
 
 def draw_massage():
@@ -53,11 +58,11 @@ def draw_player(coordinates):
     """
     draw the player on the display_surface
     """
-    pass
+    display_surface.blit(PLAYER, coordinates)
 
 
-def draw_flag():
-    pass
+def draw_flag(coordinates):
+    display_surface.blit(FLAG, coordinates)
 
 
 def draw_win():
@@ -65,3 +70,4 @@ def draw_win():
     draw a win massage on display_surface
     """
     pass
+
