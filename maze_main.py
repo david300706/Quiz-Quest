@@ -52,7 +52,7 @@ def maze_main():
         if state["player_location"] == [12, 12]:
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1] - 1] == 2:
-            screen_maze.draw_question_massage()
+            screen_maze.draw_question_massage(database.retrieve_data())
             maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0
 
 
