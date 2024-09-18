@@ -2,6 +2,7 @@ import inputs
 import pygame
 
 WINDOW_WIDTH, WINDOW_HEIGHT = 1500, 1500
+SCREEN_SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
 
 GAMES, GAMES_DATA, STUDY_INFO = inputs.main_input()
 GAMES_AMOUNT = len(GAMES)
