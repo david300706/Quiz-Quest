@@ -41,6 +41,7 @@ def draw_grid(matrix):
             elif call == 3:
                 draw_flag(coordinates)
 
+
 def draw_question_mark(coordinates):
     """
     draw the question mark massage on display_surface
@@ -52,15 +53,21 @@ def draw_scroll():
     display_surface.blit(SCROLL, (WINDOW_WIDTH // 2 - 300, WINDOW_HEIGHT // 2 - 300))
 
 
+def draw_massage(text):
+    font = pygame.font.SysFont(FONT_NAME, FONT_SIZE)
+    text_img = font.render(text, True, COLOR_TEXT)
+    display_surface.blit(text_img, LOCATION_TEXT)
+
+
 def draw_question_massage(message):
     """
     draw a question and the 3 answers passable on display_surface
     """
     draw_scroll()
-
-    font = pygame.font.SysFont(FONT_NAME, FONT_SIZE)
-    text_img = font.render(message, True, COLOR_TEXT)
-    display_surface.blit(text_img, LOCATION_TEXT)
+    draw_massage(message["question"].key)
+    draw_massage(message["question"][0])
+    draw_massage(message["question"][1])
+    draw_massage(message["question"][2])
 
 
 def draw_player(coordinates):
