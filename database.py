@@ -5,7 +5,7 @@ questions = {"question1 text": ["option1", "option2", "option3", "option4", "2"]
 
 
 def new_csv(data):
-    df = pd.DataFrame(questions)
+    df = pd.DataFrame(data)
     df.to_csv("MazeGameData.csv")
 
 
