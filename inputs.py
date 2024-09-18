@@ -59,6 +59,6 @@ def question_input():
     return question_list
 
 
-x, y = main_input()
+x, z = main_input()
 print(x)
-print(y)
+print(z)
