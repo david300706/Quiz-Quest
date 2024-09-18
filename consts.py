@@ -15,13 +15,19 @@ FRAME_WIDTH = int(WINDOW_WIDTH / GRID_WIDTH)
 MAZE_QUESTION_MAX_AMOUNT = 5
 
 # maze asstes
-BLACK_CUBE_ = pygame.image.load("cube_b.png")
-WHITE_CUBE_ = pygame.image.load("cube_w.png")
-PLAYER_ = pygame.image.load("player.png")
+BLACK_CUBE__ = pygame.image.load("cube_b.png")
+BLACK_CUBE_ = pygame.transform.scale(BLACK_CUBE__, (FRAME_HEIGHT, FRAME_WIDTH))
+
+WHITE_CUBE__ = pygame.image.load("cube_w.png")
+WHITE_CUBE_ = pygame.transform.scale(WHITE_CUBE__, (FRAME_HEIGHT, FRAME_WIDTH))
+
+PLAYER__ = pygame.image.load("player.png")
+PLAYER_ = pygame.transform.scale(PLAYER__, (FRAME_HEIGHT, FRAME_WIDTH))
+
 QUESTION_MARK_ = pygame.image.load("question-mark-sign-icon.png")
-QUESTION_MARK = pygame.transform.scale(QUESTION_MARK_, (100, 100))
+QUESTION_MARK = pygame.transform.scale(QUESTION_MARK_, (FRAME_HEIGHT, FRAME_WIDTH))
 FLAG_ = pygame.image.load("flag_5188014.png")
-FLAG = pygame.transform.scale(FLAG_, (100, 100))
+FLAG = pygame.transform.scale(FLAG_, (FRAME_HEIGHT, FRAME_WIDTH))
 
 
 def convert_index_to_cords(index_x, index_y):
