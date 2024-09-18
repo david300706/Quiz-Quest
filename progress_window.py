@@ -4,7 +4,8 @@ import pygame.event
 import progress_consts
 import progress_screen
 
-state = {"is_window_open": True}
+state = {"is_window_open": True,
+         "soldier_location": (0, progress_consts.WINDOW_WIDTH / 2)}
 
 def main():
     pygame.init()

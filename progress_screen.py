@@ -1,27 +1,26 @@
 import progress_consts
 import pygame
 
-SCREEN_SIZE = (1500, 1500)
-
+SCREEN_SIZE = (1000, 1000)
+pygame.init()
 def screen_settings(size):
     screen = pygame.display.set_mode(size)
     return screen
 
 
 def draw_maze_image(location, screen):
-    maze = progress_consts.MAZE_IMG.get_rect(
-        topleft=(location))
+    maze = progress_consts.MAZE_IMG.get_rect(topleft=(location))
     screen.blit(progress_consts.MAZE_IMG, maze)
 
 
 def draw_images(screen):
     for i in range(len(progress_consts.IMAGES)):
-        draw_maze_image((i + 1) * progress_consts.DISTANCE, screen)
+        draw_maze_image(((i + 1) * progress_consts.DISTANCE, progress_consts.WINDOW_WIDTH / 2), screen)
 
 
 def draw_soldier(location, screen):
     soldier = progress_consts.SOLDIER_IMG.get_rect(
-        topleft=(location))
+        bottomleft=(location))
     screen.blit(progress_consts.SOLDIER_IMG, soldier)
 
 
