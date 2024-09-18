@@ -27,7 +27,7 @@ def main_input():
             games_data.append(data)
             study.append(study_data)
 
-    return games, games_data, study_data
+    return games, games_data, study
 
 
 
@@ -56,14 +56,11 @@ def question_input():
     print('Please enter the answers you wish to have in your multiple choice question')
 
     for i in range(1,5):
-        answer_option = input(f'please Enter answer number {i} for your multiple choice question: ')
+        answer_option = input(f'please Enter answer number {i} for your multiple choice question ')
         question_list.append(answer_option)
     correct_answer_num = int(input('please Enter the number of the correct answer: '))
     question_list.append(correct_answer_num - 1)
     return question_list
 
 
-x, y, z = main_input()
-print(x)
-print(z)
-print(y)
+
