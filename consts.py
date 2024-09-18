@@ -3,8 +3,4 @@ STOP_INPUT = "stop"
 MAZE = "1"
 GAMES = [MAZE]
 
-
-
-
-
 WINDOW_WIDTH, WINDOW_HEIGHT = 1500, 1500
