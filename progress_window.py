@@ -18,8 +18,9 @@ def main():
         user_events()
 
         if not state["pop_up_open"]:
-            state["soldier_location"] = (round(state["soldier_location"][0] + 0.6), state["soldier_location"][1])
+            state["soldier_location"] = (round(state["soldier_location"][0] + 1), state["soldier_location"][1])
             progress_screen.draw_screen(state)
+            time.sleep(0.01)
 
         if state["soldier_location"][0] == state["next_stop"]:
             progress_screen.draw_massage(progress_consts.STUDY_INFO[state["current_game"]], progress_consts.POP_WINDOW_FONT_SIZE, (0, 0, 0),
