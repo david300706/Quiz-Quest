@@ -19,13 +19,6 @@ def main():
 
 
 
-
-
-
-
-
-
-
 def user_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -35,8 +28,12 @@ def user_events():
                 state["enter_game"] = True
 
 
-def movement():
-    pass
+
+
+
+
+
+
 main()
 
 

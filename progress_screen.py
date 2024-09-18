@@ -3,6 +3,7 @@ import pygame
 
 SCREEN_SIZE = (1000, 1000)
 pygame.init()
+
 def screen_settings(size):
     screen = pygame.display.set_mode(size)
     return screen
@@ -31,4 +32,3 @@ def draw_screen(state):
     pygame.display.flip()
 
 
-screen_settings(SCREEN_SIZE)
