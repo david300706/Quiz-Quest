@@ -44,6 +44,7 @@ def maze_main():
     user_events()
     while state["game_running"]:
         user_events()
+
         screen_maze.draw_grid(maze_grid)
         pygame.display.update()
 def user_events():
