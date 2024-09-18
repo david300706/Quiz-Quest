@@ -35,8 +35,10 @@ FLAG = pygame.transform.scale(FLAG_, (FRAME_HEIGHT, FRAME_WIDTH))
 
 FONT_NAME = "Calibri"
 FONT_SIZE = 80
-COLOR_TEXT = (0,0,0)
+COLOR_TEXT = (0, 0, 0)
 LOCATION_TEXT = 200
+GOLD_COLOR = (255, 215, 0)
+
 
 def convert_index_to_cords(index_x, index_y):
     cords_y = FRAME_HEIGHT * index_y

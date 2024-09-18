@@ -8,6 +8,8 @@ import maze_player
 import screen_maze
 
 
+
+
 def create_maze_grid():
     # 1 = wall 0 = path 2 = question 3 = flag
     grid = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -40,6 +42,8 @@ state = {"player_location": [2, 2],
 
 
 def maze_main():
+    # initially the question to draw is in index 0
+    the_number_of_question = 0
     pygame.init()
     user_events()
     while state["game_running"]:
@@ -52,7 +56,11 @@ def maze_main():
         if state["player_location"] == [12, 12]:
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1] - 1] == 2:
-            screen_maze.draw_question_massage(database.retrieve_data())
+            screen_maze.draw_question_massage(the_number_of_question)
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+            the_number_of_question += 1
             maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0
 
 
@@ -67,36 +75,36 @@ def user_events():
 
             if event.key == pygame.K_UP and maze_grid[state["player_location"][0]][
                 state["player_location"][1] - 1] == 0 or event.key == pygame.K_UP and \
-                maze_grid[state["player_location"][0]][
-                    state["player_location"][1] - 1] == 2 or event.key == pygame.K_UP and \
-                maze_grid[state["player_location"][0]][
-                    state["player_location"][1] - 1] == 3:
+                    maze_grid[state["player_location"][0]][
+                        state["player_location"][1] - 1] == 2 or event.key == pygame.K_UP and \
+                    maze_grid[state["player_location"][0]][
+                        state["player_location"][1] - 1] == 3:
                 state["player_location"][1] -= 1
 
             if event.key == pygame.K_DOWN and maze_grid[state["player_location"][0]][
                 state["player_location"][1] + 1] == 0 or event.key == pygame.K_DOWN and \
-                maze_grid[state["player_location"][0]][
-                    state["player_location"][1] + 1] == 2 or event.key == pygame.K_DOWN and \
-                maze_grid[state["player_location"][0]][
-                    state["player_location"][1] + 1] == 3:
+                    maze_grid[state["player_location"][0]][
+                        state["player_location"][1] + 1] == 2 or event.key == pygame.K_DOWN and \
+                    maze_grid[state["player_location"][0]][
+                        state["player_location"][1] + 1] == 3:
                 state["player_location"][1] += 1
 
             if event.key == pygame.K_RIGHT and maze_grid[state["player_location"][0] + 1][
                 state["player_location"][1]] == 0 or event.key == pygame.K_RIGHT and \
-                maze_grid[state["player_location"][0] + 1][
-                    state["player_location"][1]] == 2 or event.key == pygame.K_RIGHT and \
-                maze_grid[state["player_location"][0] + 1][
-                    state["player_location"][1]] == 3:
+                    maze_grid[state["player_location"][0] + 1][
+                        state["player_location"][1]] == 2 or event.key == pygame.K_RIGHT and \
+                    maze_grid[state["player_location"][0] + 1][
+                        state["player_location"][1]] == 3:
                 state["player_location"][0] += 1
 
             if event.key == pygame.K_LEFT and maze_grid[state["player_location"][0] - 1][
                 state["player_location"][1]] == 0 or event.key == pygame.K_LEFT and \
-                maze_grid[state["player_location"][0] - 1][
-                    state["player_location"][1]] == 2 or event.key == pygame.K_LEFT and \
-                maze_grid[state["player_location"][0] - 1][
-                    state["player_location"][1]] == 3:
+                    maze_grid[state["player_location"][0] - 1][
+                        state["player_location"][1]] == 2 or event.key == pygame.K_LEFT and \
+                    maze_grid[state["player_location"][0] - 1][
+                        state["player_location"][1]] == 3:
                 state["player_location"][0] -= 1
 
 
 user_events()
-# maze_main()
+maze_main()
