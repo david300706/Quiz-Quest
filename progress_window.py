@@ -16,8 +16,9 @@ def main():
     state["screen"] = progress_screen.screen_settings(progress_consts.SCREEN_SIZE)
     while state["is_window_open"]:
         user_events()
+
         if not state["pop_up_open"]:
-            state["soldier_location"] = (state["soldier_location"][0] + 1, state["soldier_location"][1])
+            state["soldier_location"] = (round(state["soldier_location"][0] + 0.6), state["soldier_location"][1])
             progress_screen.draw_screen(state)
 
         if state["soldier_location"][0] == state["next_stop"]:
@@ -31,7 +32,7 @@ def user_events():
         if event.type == pygame.QUIT:
             state["is_window_open"] = False
         elif event.type == pygame.KEYDOWN:
-            if event.type == pygame.K_RETURN:
+            if event.type == pygame.K_SPACE:
                 state["enter_game"] = True
 
 
