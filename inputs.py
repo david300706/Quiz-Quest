@@ -48,7 +48,7 @@ def main_maze_input():
 
 def question_input():
     question_list = []
-    question = input(f"Hi teacher, please enter a question you would like to have in your quiz: ").lower()
+    question = input(f" please enter a question you would like to have in your quiz: ").lower()
     question_list.append(question)
     print('Please enter the answers you wish to have in your multiple choice question')
 

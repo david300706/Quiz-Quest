@@ -14,7 +14,7 @@ FRAME_HEIGHT = int(WINDOW_HEIGHT / GRID_HEIGHT)
 FRAME_WIDTH = int(WINDOW_WIDTH / GRID_WIDTH)
 MAZE_QUESTION_MAX_AMOUNT = 5
 
-# maze asstes
+# maze assets
 BLACK_CUBE__ = pygame.image.load("cube_b.png")
 BLACK_CUBE_ = pygame.transform.scale(BLACK_CUBE__, (FRAME_HEIGHT, FRAME_WIDTH))
 
@@ -29,6 +29,7 @@ SCROLL_ = pygame.transform.scale(SCROLL_, (600, 600))
 
 QUESTION_MARK_ = pygame.image.load("question-mark-sign-icon.png")
 QUESTION_MARK = pygame.transform.scale(QUESTION_MARK_, (FRAME_HEIGHT, FRAME_WIDTH))
+
 FLAG_ = pygame.image.load("flag_5188014.png")
 FLAG = pygame.transform.scale(FLAG_, (FRAME_HEIGHT, FRAME_WIDTH))
 
