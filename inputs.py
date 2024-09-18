@@ -19,12 +19,15 @@ def main_input():
         if is_stop == consts.STOP_INPUT:
             add_game = False
 
+    study = []
     games_data = []
     for game in games:
         if game == consts.MAZE:
-            games_data.append(main_maze_input())
+            data, study_data = main_maze_input()
+            games_data.append(data)
+            study.append(study_data)
 
-    return games, games_data
+    return games, games_data, study_data
 
 
 
@@ -33,6 +36,7 @@ def main_input():
 
 
 def main_maze_input():
+    study_data = input("enter all info on the maze's subject: ")
     data = {}
     add_question = True
     while add_question:
@@ -42,7 +46,7 @@ def main_maze_input():
                      "\npress enter to enter more questions: ")
         if more == consts.STOP_INPUT:
             add_question = False
-    return data
+    return data, study_data
 
 
 def question_input():
@@ -59,6 +63,7 @@ def question_input():
     return question_list
 
 
-x, z = main_input()
+x, y, z = main_input()
 print(x)
+print(z)
 print(z)
