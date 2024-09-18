@@ -41,3 +41,5 @@ def draw_massage(massage, font_size, text_color, location, screen):
     location_y = location[1] - text_height / 2
     screen.blit(text_img, (location_x, location_y))
     pygame.display.flip()
+
+
