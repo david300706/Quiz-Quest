@@ -31,14 +31,13 @@ def draw_grid(matrix):
             coordinates = convert_index_to_cords(index_x, index_y)
 
             if call == 1:
-                draw_black_cube(coordinates)
-            elif call == 0:
                 draw_white_cube(coordinates)
+            elif call == 0:
+                draw_black_cube(coordinates)
             elif call == 2:
                 draw_question_mark(coordinates)
             elif call == 3:
                 draw_flag(coordinates)
-
 
 def draw_question_mark(coordinates):
     """
