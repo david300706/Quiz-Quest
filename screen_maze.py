@@ -17,9 +17,16 @@ def draw_white_cube(coordinates):
 def draw_grid(matrix):
     """
     draw the maze on the display_surface
-    :param matrix: a 2d matrix of 1 for no pass , 0 for pass or 2 for question mark
+    :param matrix: a 2d matrix of 1 for black , 0 for pass or 2 for question mark
     """
-    pass
+    for row in matrix:
+        for call in row:
+            if call == 1:
+                pass
+            elif call == 0:
+                pass
+            elif call == 2:
+                pass
 
 
 def question_mark(coordinates):
