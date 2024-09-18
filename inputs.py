@@ -27,7 +27,7 @@ def main_input():
             games_data.append(data)
             study.append(study_data)
 
-    return games, games_data, study_data
+    return games, games_data, study
 
 
 
@@ -63,7 +63,5 @@ def question_input():
     return question_list
 
 
-x, y, z = main_input()
-print(x)
-print(z)
-print(z)
+games, games_data, study_info = main_input()
+
