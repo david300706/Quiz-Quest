@@ -3,6 +3,7 @@ import consts
 # import screen
 import pygame
 
+import database
 import maze_player
 import screen_maze
 
@@ -13,7 +14,7 @@ def create_maze_grid():
             [1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 2, 1, 1, 1],
+            [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
             [1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
             [1, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
@@ -51,7 +52,7 @@ def maze_main():
         if state["player_location"] == [12, 12]:
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1] - 1] == 2:
-            screen_maze.draw_massage()
+            # screen_maze.draw_question_massage()
             maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0
 def user_events():
     pygame.init()
