@@ -2,6 +2,11 @@
 import pygame.event
 
 import progress_consts
+import progress_screen
+
+state = {"is_window_open": True,
+         "soldier_location": (0, progress_consts.WINDOW_WIDTH / 2)}
+import progress_consts
 
 screen = pygame.display.set_mode((progress_consts.WINDOW_WIDTH, progress_consts.WINDOW_HEIGHT))
 
@@ -10,8 +15,20 @@ state = {"is_window_open": True}
 
 def main():
     pygame.init()
-
+    state["screen"] = progress_screen.screen_settings(progress_consts.SCREEN_SIZE)
     while state["is_window_open"]:
+        user_events()
+
+        progress_screen.draw_screen(state)
+
+
+
+
+
+
+
+
+
 
 
 def user_events():
