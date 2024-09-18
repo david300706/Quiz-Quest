@@ -1,3 +1,5 @@
+import consts
+
 def main_input():
     print("welcome to the Quiz Quest!\n"
           "we are gonna have so much fun!")
@@ -45,8 +47,6 @@ def main_maze_input():
 
 def question_input():
     question_list = []
-
-
     question = input(f"Hi teacher, please enter a question you would like to have in your quiz: ").lower()
     question_list.append(question)
     print('Please enter the answers you wish to have in your multiple choice question')
@@ -57,8 +57,8 @@ def question_input():
     correct_answer_num = int(input('please Enter the number of the correct answer: '))
     question_list.append(correct_answer_num - 1)
     return question_list
-print(question_input())
 
 
-
-
+x, y = main_input()
+print(x)
+print(y)
