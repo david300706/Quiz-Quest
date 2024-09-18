@@ -1,5 +1,6 @@
 import pygame
-from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER_, QUESTION_MARK, FLAG
+from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER_, QUESTION_MARK, FLAG, FONT_NAME, \
+    SCROLL_, FONT_SIZE, COLOR_TEXT, LOCATION_TEXT
 from consts import convert_index_to_cords
 
 # general setup
@@ -10,6 +11,7 @@ display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 BLACK_CUBE = BLACK_CUBE_.convert_alpha()
 WHITE_CUBE = WHITE_CUBE_.convert_alpha()
 PLAYER = PLAYER_.convert_alpha()
+SCROLL = SCROLL_.convert_alpha()
 
 
 def draw_black_cube(coordinates):
@@ -46,11 +48,19 @@ def draw_question_mark(coordinates):
     display_surface.blit(QUESTION_MARK, coordinates)
 
 
-def draw_massage():
+def draw_scroll():
+    display_surface.blit(SCROLL, (WINDOW_WIDTH // 2 - 300, WINDOW_HEIGHT // 2 - 300))
+
+
+def draw_massage(message):
     """
     draw a question and the 3 answers passable on display_surface
     """
-    pass
+    draw_scroll()
+
+    font = pygame.font.SysFont(FONT_NAME, FONT_SIZE)
+    text_img = font.render(message, True, COLOR_TEXT)
+    display_surface.blit(text_img, LOCATION_TEXT)
 
 
 def draw_player(coordinates):
@@ -69,4 +79,3 @@ def draw_win():
     draw a win massage on display_surface
     """
     pass
-

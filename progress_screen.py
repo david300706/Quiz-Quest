@@ -4,7 +4,6 @@ import pygame
 SCREEN_SIZE = (1000, 1000)
 pygame.init()
 
-
 def screen_settings(size):
     screen = pygame.display.set_mode(size)
     return screen
@@ -32,4 +31,13 @@ def draw_screen(state):
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
 
-
+def draw_massage(massage, font_size, text_color, location, screen):
+    screen.fill(progress_consts.POP_UP_COLOR)
+    font = pygame.font.SysFont(progress_consts.FONT_NAME, font_size, bold=True)
+    text_img = font.render(massage, True, text_color)
+    text_width = text_img.get_width()
+    text_height = text_img.get_height()
+    location_x = location[0] - text_width / 2
+    location_y = location[1] - text_height / 2
+    screen.blit(text_img, (location_x, location_y))
+    pygame.display.flip()

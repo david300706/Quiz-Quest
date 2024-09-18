@@ -43,6 +43,7 @@ def maze_main():
     user_events()
     while state["game_running"]:
         user_events()
+
         screen_maze.draw_grid(maze_grid)
         screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]))
         pygame.display.update()
