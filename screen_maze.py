@@ -6,11 +6,11 @@ pygame.init()
 display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
 
-def draw_black_cube():
+def draw_black_cube(coordinates):
     pass
 
 
-def draw_white_cube():
+def draw_white_cube(coordinates):
     pass
 
 
@@ -22,21 +22,29 @@ def draw_grid(matrix):
     pass
 
 
-def question_mark():
+def question_mark(coordinates):
     """
-
-    :return:
+    draw the question mark massage on display_surface
     """
     pass
 
 
 def draw_massage():
+    """
+    draw a question and the 3 answers passable on display_surface
+    """
     pass
 
 
-def draw_player():
+def draw_player(coordinates):
+    """
+    draw the player on the display_surface
+    """
     pass
 
 
 def draw_win():
+    """
+    draw a win massage on display_surface
+    """
     pass
