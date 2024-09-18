@@ -1,5 +1,5 @@
 # import progress_screen
-import pygame.event
+import pygame
 
 import progress_consts
 import progress_screen
@@ -11,6 +11,7 @@ import progress_consts
 screen = pygame.display.set_mode((progress_consts.WINDOW_WIDTH, progress_consts.WINDOW_HEIGHT))
 
 state = {"is_window_open": True}
+
 
 
 def main():
