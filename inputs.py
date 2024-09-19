@@ -3,10 +3,20 @@ import database
 
 
 def main_input():
+    print()
     print("welcome to the Quiz Quest!\n"
           "we are gonna have so much fun!")
     # TODO: print explanation on each game
     print('Here are explanations of the games: ')
+    print()
+    print(
+        "MAZE GAME: The MAZE GAME is a game that combines fun with a very interesting quiz on a topic of your choice, the game includs multiple choise questions, ")
+    print('During the game, the player must find the exit from the maze. If the player gets stuck in an obstacle, a question appears about the chosen topic. ')
+    print()
+    print(
+        'FLAG GAME: The FLAG GAME is a tactical and strategy-based game that challenges players to navigate through a minefield to reach the flag and win. ')
+    print(' The objective is to carefully plan your moves, using logic and observation to avoid hidden mines scattered across the playing field.')
+    print()
     print("MAZE GAME: The MAZE GAME is a game that combines fun with a very interesting quiz on a topic of your choice.")
     print('FLAG GAME: the FLAG GAME is a tactical game with intresting strategy: you have to avoid the mines! and reach the flag to win.')
 
@@ -23,7 +33,8 @@ def main_input():
         games.append(new_game)
         print()
         is_stop = input(f"enough mini games? enter '{consts.STOP_INPUT}' to stop, "
-                        "\npress enter to enter more games: ")
+                        "\npress enter to add more games: ")
+        print()
         if is_stop == consts.STOP_INPUT:
             add_game = False
 
@@ -70,6 +81,7 @@ def main_maze_input():
 def question_input():
     question_list = []
     question = input(f" please enter a question you would like to have in your quiz: ").lower()
+    print()
     question_list.append(question)
     print()
     print('Please enter the answers you wish to have in your multiple choice question')
@@ -79,6 +91,7 @@ def question_input():
 
         question_list.append(answer_option)
     input_ = False
+    print()
     while not input_:
         correct_answer_num = int(input('please Enter the number of the correct answer: '))
         if correct_answer_num < 5 and correct_answer_num > 0:
@@ -89,7 +102,7 @@ def question_input():
     return question_list
 
 
-# main_input()
+main_input()
 def facts_input():
     descr = input("enter initial info to study: ")
     print()
