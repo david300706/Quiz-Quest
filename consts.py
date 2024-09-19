@@ -39,7 +39,7 @@ FONT_SIZE = 20
 COLOR_TEXT = (0, 0, 0)
 LOCATION_TEXT = 200
 GOLD_COLOR = (255, 215, 0)
-LOCATION_TEXT_SCORE = (500, 500)
+LOCATION_TEXT_SCORE = (100,100)
 
 
 def convert_index_to_cords(index_x, index_y):

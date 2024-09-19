@@ -65,7 +65,7 @@ def maze_main(questions):
     while state["game_running"]:
         user_events()
 
-        screen_maze.draw_grid(maze_grid, display_surface)
+        screen_maze.draw_grid(maze_grid, display_surface, state["score"])
         screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]),
                                 display_surface)
         pygame.display.update()
@@ -82,7 +82,6 @@ def maze_main(questions):
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and \
             maze_grid[state["player_location"][0]][state["player_location"][1]] != been_thare_location:
 
-
             been_thare_location = maze_grid[state["player_location"][0]][state["player_location"][1]]
             screen_maze.draw_question_massage(current_question, questions, display_surface)
 
@@ -94,30 +93,38 @@ def maze_main(questions):
                     # checking if keydown event happened or not
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_1:
-                            if questions[current_question][4] == 1:
+                            if questions[current_question][4] == "1":
                                 state["score"] += 1
                             not_pressd_one_of_answers_key = False
 
                         elif event.key == pygame.K_2:
-                            if questions[current_question][4] == 2:
+                            if questions[current_question][4] == "2":
                                 state["score"] += 1
                             not_pressd_one_of_answers_key = False
 
                         elif event.key == pygame.K_3:
-                            if questions[current_question][4] == 3:
+                            if questions[current_question][4] == "3":
                                 state["score"] += 1
                             not_pressd_one_of_answers_key = False
 
                         elif event.key == pygame.K_4:
-                            if questions[current_question][4] == 4:
+                            if questions[current_question][4] == "4":
                                 state["score"] += 1
                             not_pressd_one_of_answers_key = False
-            screen_maze.draw_score(state["score"], display_surface)
+
+            # screen_maze.draw_score(state["score"], display_surface)
             # FOR TESTING IF THE SCROLL SHOW UP
             if the_number_of_question <= len(list_of_kys):
                 the_number_of_question += 1
             maze_grid[state["player_location"][0]][state["player_location"][1]] = 0
 
+        # screen_maze.draw_score(state["score"], display_surface)
+        pygame.display.update()
+
+        if state["game_running"] == False:
+            screen_maze.draw_win(display_surface)
+            pygame.display.update()
+            pygame.time.wait(1000)
 
 def user_events():
     pygame.init()
