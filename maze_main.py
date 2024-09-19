@@ -1,15 +1,17 @@
-# import consts
 import consts
-# import screen
 import pygame
 import random
-
 import database
-import maze_player
 import screen_maze
 
 
 def add_qustions_to_grid(grid, questions):
+    """
+    pick the corrdint to add the qustion marks to the maze
+    :param grid: the grid
+    :param questions:
+    :return: the list of cordnites
+    """
     list_of_loc_to_add = []
     num_of_qustion_mark_to_add = len(list(questions.keys()))
     for i in range(num_of_qustion_mark_to_add):
@@ -25,6 +27,11 @@ def add_qustions_to_grid(grid, questions):
 
 
 def create_maze_grid(questions):
+    """
+    creat the start maze without the qustion mark
+    :param questions: the dict of qustions to draw
+    :return: the grid
+    """
     # 1 = wall 0 = path 2 = question 3 = flag
     grid = random.choice(consts.mazes)
     list_of_loc = add_qustions_to_grid(grid, questions)
@@ -48,6 +55,9 @@ state = {"player_location": [1, 1],
 
 
 def inital_the_screen():
+    """
+    Starts the screen
+    """
     pygame.init()
     display_surface = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     return display_surface
@@ -94,6 +104,7 @@ def maze_main(questions):
                 for event in pygame.event.get():
                     # checking if keydown event happened or not
                     if event.type == pygame.KEYDOWN:
+
                         if event.key == pygame.K_1:
                             if questions[current_question][4] == "1":
                                 state["score"] += 1
