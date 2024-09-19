@@ -4,7 +4,7 @@ import pygame
 import FG_consts
 import consts
 from database import questions
-from screen_maze import calculate_centered_positions, draw_massage, SCROLL, display_surface
+from screen_maze import calculate_centered_positions, draw_massage, SCROLL
 
 
 def screen():
@@ -58,7 +58,7 @@ def print_lost(screen):
 
 def print_won(screen):
     draw_message(FG_consts.WON_MASSAGE, FG_consts.START_FONT_SIZE,
-                 FG_consts.START_COLOR, FG_consts.START_LOCATION)
+                 FG_consts.START_COLOR, FG_consts.START_LOCATION,screen)
     pygame.display.flip()
     time.sleep(3)
 
