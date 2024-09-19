@@ -92,13 +92,15 @@ def question_input():
         question_list.append(answer_option)
     input_ = False
     print()
-    while not input_:
-        correct_answer_num = int(input('please Enter the number of the correct answer: '))
-        if correct_answer_num < 5 and correct_answer_num > 0:
-            input_ = True
-        else:
-            print('invalid number, the correct answer has to be in range ')
-        question_list.append(correct_answer_num - 1)
+
+    correct_answer_num_ = input('please Enter the number of the correct answer: ')
+    while correct_answer_num_ not in ['1','2','3','4']:
+        print('invalid input, try again ')
+        correct_answer_num_ = input('please Enter the number of the correct answer: ')
+
+    correct_answer_num = int(correct_answer_num_)
+
+    question_list.append(correct_answer_num - 1)
     return question_list
 
 
