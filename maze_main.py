@@ -71,7 +71,7 @@ def maze_main(questions):
         pygame.display.update()
         if the_number_of_question != len(list_of_kys):
             current_question = list_of_kys[the_number_of_question]
-        if state["player_location"] == [12, 12]:
+        if state["player_location"] == [13, 13]:
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
             "player_location"] != been_thare_location:
