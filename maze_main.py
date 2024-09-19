@@ -172,5 +172,5 @@ def user_events():
 
 
 user_events()
-maze_main(database.questions)
-maze_main(database.questions)
+#maze_main(database.questions)
+#maze_main(database.questions)
