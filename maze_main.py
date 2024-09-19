@@ -39,11 +39,15 @@ state = {"player_location": [2, 2],
          "is_losing": False}
 
 
-def maze_main():
+def maze_main(questions):
+    """
+    :param questions:  a dict of questions and answers
+    """
     # initially the question to draw is in index 0
     the_number_of_question = 0
     pygame.init()
     user_events()
+    been_thare_loc = "X"
     while state["game_running"]:
         user_events()
 
@@ -53,13 +57,35 @@ def maze_main():
 
         if state["player_location"] == [12, 12]:
             state["game_running"] = False
-        if maze_grid[state["player_location"][0]][state["player_location"][1] - 1] == 2:
-            screen_maze.draw_question_massage(the_number_of_question)
+
+        if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2  and maze_grid[state["player_location"][0]][state["player_location"][1]]  != been_thare_loc:
+            been_thare_loc = maze_grid[state["player_location"][0]][state["player_location"][1]]
+            screen_maze.draw_question_massage(the_number_of_question, questions)
             pygame.display.update()
 
-            # FOR TESTING IF THE SCROLL SHOW UP
-            pygame.time.wait(1000000)
+            not_pressd_one_of_answers_key = True
+            while not_pressd_one_of_answers_key:
+                for event in pygame.event.get():
+                    # checking if keydown event happened or not
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_1:
+                            print("1")
+                            not_pressd_one_of_answers_key = False
 
+                        elif event.key == pygame.K_2:
+                            print("2")
+                            not_pressd_one_of_answers_key = False
+
+                        elif event.key == pygame.K_3:
+                            print("3")
+                            not_pressd_one_of_answers_key = False
+
+                        elif event.key == pygame.K_4:
+                            print("4")
+                            not_pressd_one_of_answers_key = False
+
+
+            # FOR TESTING IF THE SCROLL SHOW UP
             the_number_of_question += 1
             maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0
 
@@ -107,4 +133,4 @@ def user_events():
 
 
 user_events()
-# maze_main()
+maze_main(database.questions)
