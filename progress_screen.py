@@ -24,10 +24,15 @@ def draw_soldier(location, screen):
         bottomleft=(location))
     screen.blit(progress_consts.SOLDIER_IMG, soldier)
 
+def draw_stops(screen):
+    for stop in progress_consts.STOPS:
+        pygame.draw.circle(screen, (0,0,0), tuple(stop), 10)
+
 
 def draw_screen(state):
     state["screen"].fill(progress_consts.BACKGROUND)
     draw_images(state["screen"])
+    # draw_stops(state["screen"])
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
 
