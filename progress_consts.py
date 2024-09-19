@@ -5,7 +5,7 @@ WINDOW_WIDTH, WINDOW_HEIGHT = 1000, 1000
 SCREEN_SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
 
 GAMES, GAMES_DATA, STUDY_INFO, FILES = inputs.main_input()
-# GAMES, GAMES_DATA, STUDY_INFO = ["1", "2", "1"], ["DSD", "D","F","g","H", 2], ['fffffff']
+# GAMES, GAMES_DATA, STUDY_INFO, FILES = ["1"], ["DSD", "D","F","g","H", 2], ['Maze1.csv']
 POP_WINDOW_FONT_SIZE = int(0.1 * WINDOW_WIDTH)
 POP_WINDOW_FONT_LOCATION = (int(WINDOW_WIDTH / 2), int(WINDOW_HEIGHT / 2))
 FONT_NAME = 'Calibri'
@@ -22,15 +22,17 @@ DISTANCE = WINDOW_WIDTH / (GAMES_AMOUNT + 1)
 MAZE_IMG = pygame.image.load("maze.png")
 MAZE_IMG = pygame.transform.scale(MAZE_IMG, (60, 60))
 
-IMAGES_DICT = {"1": MAZE_IMG}
+FLAG_IMAGE = pygame.image.load("flag_5188014.png")
+FLAG_IMAGE = pygame.transform.scale(FLAG_IMAGE, (60, 60))
+
+IMAGES_DICT = {"1": MAZE_IMG, "2": FLAG_IMAGE}
 
 IMAGES = [IMAGES_DICT.get(game) for game in GAMES]
 
 SOLDIER_IMG = pygame.image.load("soldier.png")
 SOLDIER_IMG = pygame.transform.scale(SOLDIER_IMG, (SOLDIER_WIDTH, SOLDIER_HEIGHT))
 
-FLAG_IMAGE = pygame.image.load("flag_5188014.png")
-FLAG_IMAGE = pygame.transform.scale(FLAG_IMAGE, (60, 60))
+
 
 
 

@@ -34,11 +34,12 @@ def draw_screen(state):
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
 
+
 def draw_logo(screen):
     logo = progress_consts.LOGO_IMAGE.get_rect(topleft=(0, 0))
     screen.blit(progress_consts.LOGO_IMAGE, logo)
     pygame.display.flip()
-    time.sleep(3)
+    time.sleep(6)
 
 
 def draw_tk(text):

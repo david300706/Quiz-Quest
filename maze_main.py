@@ -1,7 +1,11 @@
+# import consts
 import consts
+# import screen
 import pygame
 import random
+
 import database
+import maze_player
 import screen_maze
 
 
@@ -62,25 +66,25 @@ def inital_the_screen():
     return display_surface
 
 
-questions = {"q1": ["a", "b", "c", "d", "1"], "q2": ["a", "b", "c", "d", "1"], "q3": ["a", "b", "c", "d", "1"]}
+# questions = {"q1": ["a", "b", "c", "d", "1"], "q2": ["a", "b", "c", "d", "1"], "q3": ["a", "b", "c", "d", "1"]}
 
-maze_grid = create_maze_grid(questions)
 
 
 def maze_main(questions):
     """
     :param questions:  a dict of questions and answers
     """
-
+    maze_grid = create_maze_grid(questions)
+    # user_events(maze_grid)
     # initially the question to draw is in index 0
     list_of_kys = list(questions.keys())
     display_surface = inital_the_screen()
     the_number_of_question = 0
     pygame.init()
-    user_events()
+    user_events(maze_grid)
     been_thare_location = "X"
     while state["game_running"]:
-        user_events()
+        user_events(maze_grid)
         screen_maze.draw_grid(maze_grid, display_surface, state["score"])
         screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]),
                                 display_surface)
@@ -146,7 +150,7 @@ def maze_main(questions):
             pygame.time.wait(1000)
 
 
-def user_events():
+def user_events(maze_grid):
     pygame.init()
     global state
     for event in pygame.event.get():
@@ -187,7 +191,6 @@ def user_events():
                     state["player_location"][1]] == 3:
                 state["player_location"][0] -= 1
 
-
-user_events()
-#maze_main(database.questions)
-#maze_main(database.questions)
+#
+# user_events()
+# maze_main(database.questions)

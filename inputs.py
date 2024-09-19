@@ -21,7 +21,7 @@ def main_input():
             new_game = input(f"enter '{consts.MAZE}' to add maze game', {consts.FLAG_GAME}' to add flag game,  : ")
 
         games.append(new_game)
-
+        print()
         is_stop = input(f"enough mini games? enter '{consts.STOP_INPUT}' to stop, "
                         "\npress enter to enter more games: ")
         if is_stop == consts.STOP_INPUT:
@@ -38,11 +38,16 @@ def main_input():
             data_[list(data.keys())[0]] = list(data.values())[0]
             games_data.append(data)
             study.append(study_data)
-            database.new_maze_csv(data_, f"Maze{i}.csv")
-            files.append(f"Maze{i}.csv")
+            database.new_maze_csv(data_, f"Maze{i + 1}.csv")
+            files.append(f"Maze{i + 1}.csv")
 
-        elif games[i] == consts.FLAG:
+        elif games[i] == consts.FLAG_GAME:
+            facts, desc = facts_input()
+            study.append(desc)
 
+            data_["facts"] = facts
+            database.new_flag_csv(data_, f"Flag{i + 1}.csv")
+            files.append(f"Flag{i + 1}.csv")
 
     return games, games_data, study, files
 
@@ -54,6 +59,7 @@ def main_maze_input():
     while add_question:
         new_q = question_input()
         data[new_q[0]] = new_q[1:]
+        print()
         more = input(f"enough questions? enter '{consts.STOP_INPUT}' to stop, "
                      "\npress enter to enter more questions: ")
         if more == consts.STOP_INPUT:
@@ -65,8 +71,9 @@ def question_input():
     question_list = []
     question = input(f" please enter a question you would like to have in your quiz: ").lower()
     question_list.append(question)
+    print()
     print('Please enter the answers you wish to have in your multiple choice question')
-
+    print()
     for i in range(1, 5):
         answer_option = input(f'please Enter answer number {i} for your multiple choice question ')
 
@@ -84,13 +91,15 @@ def question_input():
 
 # main_input()
 def facts_input():
+    descr = input("enter initial info to study: ")
+    print()
     done = False
     facts_list = []
     while not done:
         fact = input(
-            "please enter a fact you would like to have in your FLAG GAME if youre done enter 'done': ").lower()
+            "please enter a fact you would like to have in your FLAG GAME if your'e done enter 'done': ").lower()
         if fact == 'done':
             done = True
         else:
             facts_list.append(fact)
-    return facts_list
+    return facts_list, descr

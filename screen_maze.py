@@ -173,3 +173,4 @@ def draw_win(display_surface):
     win_rect = win_text.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2))
     pygame.draw.rect(display_surface, (5, 5, 5), win_rect.inflate(20, 20))
     display_surface.blit(win_text, win_rect)
+

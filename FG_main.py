@@ -143,4 +143,4 @@ facts = [
     "Honey never spoils.",
     "Bananas are berries, but strawberries aren't."]
 
-main(facts)
+# main(facts)
