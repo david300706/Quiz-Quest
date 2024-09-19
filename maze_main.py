@@ -25,16 +25,16 @@ def add_qustions_to_grid(grid, questions):
 def create_maze_grid(questions):
     # 1 = wall 0 = path 2 = question 3 = flag
     grid = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1],
+            [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
             [1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
             [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 2, 1, 1, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1],
             [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
             [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 3, 0, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
@@ -91,8 +91,8 @@ def maze_main(questions):
             screen_maze.draw_question_massage(the_number_of_question, questions,display_surface)
 
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and \
-                maze_grid[state["player_location"][0]][state["player_location"][1]] != been_there_loc:
-            been_there_loc = maze_grid[state["player_location"][0]][state["player_location"][1]]
+                maze_grid[state["player_location"][0]][state["player_location"][1]] != been_thare_location:
+            been_thare_location = maze_grid[state["player_location"][0]][state["player_location"][1]]
             screen_maze.draw_question_massage(the_number_of_question, questions, display_surface)
             pygame.display.update()
 
@@ -119,7 +119,7 @@ def maze_main(questions):
 
             # FOR TESTING IF THE SCROLL SHOW UP
             the_number_of_question += 1
-            maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0
+            maze_grid[state["player_location"][0]][state["player_location"][1]] = 0
 
 
 def user_events():
