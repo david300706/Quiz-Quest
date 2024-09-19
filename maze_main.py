@@ -58,7 +58,7 @@ def maze_main():
             pygame.display.update()
 
             # FOR TESTING IF THE SCROLL SHOW UP
-            pygame.time.wait(1000)
+            pygame.time.wait(1000000)
 
             the_number_of_question += 1
             maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0

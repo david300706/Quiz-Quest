@@ -114,7 +114,10 @@ def draw_question_massage(the_number_of_question):
     draw a question and the 3 answers passable on display_surface
     the_number_of_question: an int representing the index of the question
     """
-    draw_scroll(SCROLL, display_surface,(WINDOW_WIDTH // 2 - 300, WINDOW_HEIGHT // 2 - 300))
+
+    scroll_rect = SCROLL.get_rect(center=(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2))
+
+    draw_scroll(SCROLL, display_surface, scroll_rect)
     questions_to_draw = list(questions.keys())
     coordinates_of_text = calculate_centered_positions()
     draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"])

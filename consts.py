@@ -25,8 +25,8 @@ PLAYER__ = pygame.image.load("player.png")
 PLAYER_ = pygame.transform.scale(PLAYER__, (FRAME_HEIGHT, FRAME_WIDTH))
 
 SCROLL_ = pygame.image.load("scroll_good.png")
-SCROLL_ = pygame.transform.scale(SCROLL_, (800, 800))
-
+SCROLL_ = pygame.transform.scale(SCROLL_, (900,800 ))
+#len(leangt_longest_row)
 QUESTION_MARK_ = pygame.image.load("qustion_mark_rady_to_use.png")
 QUESTION_MARK = pygame.transform.scale(QUESTION_MARK_, (FRAME_HEIGHT, FRAME_WIDTH))
 
