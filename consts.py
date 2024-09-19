@@ -3,7 +3,8 @@ import pygame.image
 STOP_INPUT = "stop"
 
 MAZE = "1"
-GAMES = [MAZE]
+FLAG_GAME = "2"
+GAMES = [MAZE,FLAG_GAME]
 
 WINDOW_WIDTH, WINDOW_HEIGHT = 1000, 1000
 # Grid size for maze:
