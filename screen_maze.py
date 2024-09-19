@@ -118,7 +118,7 @@ def draw_question_massage(question, questions, display_surface):
     """
     the function only need the number of the desirable question and answer to draw
     and shy will
-    draw a question and the 3 answers passable on display_surface
+    draw a question and the 4 answers passable on display_surface
     the_number_of_question: an int representing the index of the question
     """
 

@@ -10,6 +10,12 @@ import screen_maze
 
 
 def add_qustions_to_grid(grid, questions):
+    """
+    pick the corrdint to add the qustion marks to the maze
+    :param grid: the grid
+    :param questions:
+    :return: the list of cordnites
+    """
     # adds the questions to the grid:
     # adds the value "2" to a random place there was a "0" before
     list_of_loc_to_add = []
@@ -20,11 +26,16 @@ def add_qustions_to_grid(grid, questions):
         while grid[y][x] != 0:
             x = random.randint(1, consts.GRID_WIDTH - 1)
         list_of_loc_to_add.append([y, x])
+    print(list_of_loc_to_add)
     return list_of_loc_to_add
 
 
 def create_maze_grid(questions):
-    # creates a grid for the maze:
+    """
+    creat the start maze without the qustion mark
+    :param questions: the dict of qustions to draw
+    :return: the grid
+    """
     # 1 = wall 0 = path 2 = question 3 = flag
     grid = random.choice(consts.mazes)
     list_of_loc = add_qustions_to_grid(grid, questions)
@@ -44,16 +55,24 @@ state = {"player_location": [1, 1],
 
 
 def inital_the_screen():
-    # starts the initial screen
+    """
+    Starts the screen
+    """
     pygame.init()
     display_surface = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     return display_surface
+
+
+questions = {"q1": ["a", "b", "c", "d", "1"], "q2": ["a", "b", "c", "d", "1"], "q3": ["a", "b", "c", "d", "1"]}
+
+maze_grid = create_maze_grid(questions)
 
 
 def maze_main(questions):
     """
     :param questions:  a dict of questions and answers
     """
+
     # initially the question to draw is in index 0
     list_of_kys = list(questions.keys())
     display_surface = inital_the_screen()
@@ -63,15 +82,16 @@ def maze_main(questions):
     been_thare_location = "X"
     while state["game_running"]:
         user_events()
-
         screen_maze.draw_grid(maze_grid, display_surface, state["score"])
         screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]),
                                 display_surface)
         pygame.display.update()
         if the_number_of_question != len(list_of_kys):
             current_question = list_of_kys[the_number_of_question]
+
         if state["player_location"] == [13, 13]:
             state["game_running"] = False
+
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
             "player_location"] != been_thare_location:
             been_thare_location = state["player_location"]
@@ -90,6 +110,7 @@ def maze_main(questions):
                 for event in pygame.event.get():
                     # checking if keydown event happened or not
                     if event.type == pygame.KEYDOWN:
+
                         if event.key == pygame.K_1:
                             if questions[current_question][4] == "1":
                                 state["score"] += 1
@@ -123,6 +144,7 @@ def maze_main(questions):
             screen_maze.draw_win(display_surface)
             pygame.display.update()
             pygame.time.wait(1000)
+
 
 def user_events():
     # All the movement of the player throughout the maze:
