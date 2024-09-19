@@ -24,7 +24,7 @@ MINE_HEIGHT = 1
 GRASS_HEIGHT = 2
 GRASS_WIDTH = 2
 
-AMOUNT_MINE = 20
+AMOUNT_MINE = 130
 
 TELEPORT_HEIGHT = 1
 TELEPORT_WIDTH = 3
@@ -53,7 +53,7 @@ FLAG_IMAGE = pygame.transform.scale(FLAG_IMAGE, (FLAG_WIDTH * FRAME_WIDTH, FLAG_
 GRASS_IMAGE = pygame.image.load("grass.png")
 GRASS_IMAGE = pygame.transform.scale(GRASS_IMAGE, (GRASS_WIDTH * FRAME_WIDTH, GRASS_HEIGHT * FRAME_HEIGHT))
 
-MINE_IMAGE = pygame.image.load("mine.png")
+MINE_IMAGE = pygame.image.load("pngwing.com.png")
 MINE_IMAGE = pygame.transform.scale(MINE_IMAGE, (MINE_WIDTH * FRAME_WIDTH, MINE_HEIGHT * FRAME_HEIGHT))
 
 SOLDIER_IMAGE = pygame.image.load("soldier.png")

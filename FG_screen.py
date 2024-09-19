@@ -58,7 +58,7 @@ def print_lost(screen):
 
 def print_won(screen):
     draw_message(FG_consts.WON_MASSAGE, FG_consts.START_FONT_SIZE,
-                 FG_consts.START_COLOR, FG_consts.START_LOCATION)
+                 FG_consts.START_COLOR, FG_consts.START_LOCATION,screen)
     pygame.display.flip()
     time.sleep(3)
 

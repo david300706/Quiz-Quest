@@ -24,21 +24,7 @@ def add_qustions_to_grid(grid, questions):
 
 def create_maze_grid(questions):
     # 1 = wall 0 = path 2 = question 3 = flag
-    grid = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-            [1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-            [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1],
-            [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 3, 0, 1],
-            [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
-            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
+    grid = random.choice(consts.mazes)
     list_of_loc = add_qustions_to_grid(grid, questions)
     for i in list_of_loc:
         grid[i[0]][i[1]] = 2
@@ -51,7 +37,7 @@ maze_grid = create_maze_grid(database.questions)
 # for x in create_maze_grid():
 #   print(x)
 
-state = {"player_location": [2, 2],
+state = {"player_location": [1, 1],
          "game_running": True,
          "is_winning": False,
          "is_losing": False,
@@ -85,10 +71,11 @@ def maze_main(questions):
         pygame.display.update()
         if the_number_of_question != len(list_of_kys):
             current_question = list_of_kys[the_number_of_question]
-        if state["player_location"] == [12, 12]:
+        if state["player_location"] == [13, 13]:
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
             "player_location"] != been_thare_location:
+            print("b", been_thare_location)
             been_thare_location = state["player_location"]
             screen_maze.draw_question_massage(current_question, questions, display_surface)
 
