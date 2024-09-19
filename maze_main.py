@@ -10,6 +10,8 @@ import screen_maze
 
 
 def add_qustions_to_grid(grid, questions):
+    # adds the questions to the grid:
+    # adds the value "2" to a random place there was a "0" before
     list_of_loc_to_add = []
     num_of_qustion_mark_to_add = len(list(questions.keys()))
     for i in range(num_of_qustion_mark_to_add):
@@ -18,24 +20,20 @@ def add_qustions_to_grid(grid, questions):
         while grid[y][x] != 0:
             x = random.randint(1, consts.GRID_WIDTH - 1)
         list_of_loc_to_add.append([y, x])
-    print(list_of_loc_to_add)
     return list_of_loc_to_add
 
 
 def create_maze_grid(questions):
+    # creates a grid for the maze:
     # 1 = wall 0 = path 2 = question 3 = flag
     grid = random.choice(consts.mazes)
     list_of_loc = add_qustions_to_grid(grid, questions)
     for i in list_of_loc:
         grid[i[0]][i[1]] = 2
-        print(grid)
     return grid
 
 
 maze_grid = create_maze_grid(database.questions)
-
-# for x in create_maze_grid():
-#   print(x)
 
 state = {"player_location": [1, 1],
          "game_running": True,
@@ -46,6 +44,7 @@ state = {"player_location": [1, 1],
 
 
 def inital_the_screen():
+    # starts the initial screen
     pygame.init()
     display_surface = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
     return display_surface
@@ -75,7 +74,6 @@ def maze_main(questions):
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
             "player_location"] != been_thare_location:
-            print("b", been_thare_location)
             been_thare_location = state["player_location"]
             screen_maze.draw_question_massage(current_question, questions, display_surface)
 
@@ -127,6 +125,9 @@ def maze_main(questions):
             pygame.time.wait(1000)
 
 def user_events():
+    # All the movement of the player throughout the maze:
+    # He can only walk on blocks who their value is:
+    # 0, 2 or 3
     pygame.init()
     global state
     for event in pygame.event.get():

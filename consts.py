@@ -39,15 +39,17 @@ FONT_SIZE = 20
 COLOR_TEXT = (0, 0, 0)
 LOCATION_TEXT = 200
 GOLD_COLOR = (255, 215, 0)
-LOCATION_TEXT_SCORE = (100,100)
+LOCATION_TEXT_SCORE = (100, 100)
 
 
 def convert_index_to_cords(index_x, index_y):
+    # converts index[x, y] to cords(x and y)
     cords_y = FRAME_HEIGHT * index_y
     cords_x = FRAME_WIDTH * index_x
     return cords_x, cords_y
 
 
+# all the grids for the different mazes
 maze1 = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
          [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1],
          [1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1],
@@ -127,4 +129,6 @@ maze5 = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
          [1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
          [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 1],
          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]
-mazes = [maze5]
+
+#
+mazes = [maze1, maze2, maze3, maze4, maze5]

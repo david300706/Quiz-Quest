@@ -6,6 +6,7 @@ import random as nd
 # import soldier
 
 def create():
+    # creates the grid for the game
     game_field_grid = []
     for row in range(FG_consts.GRID_HEIGHT):
         game_field_grid.append([])
@@ -16,6 +17,7 @@ def create():
 
 
 def mine_spread(game_field):
+    # spreads mines randomly across the map
     game_field_grid = game_field
     mine_amount = 0
     mines = []
@@ -33,6 +35,7 @@ def mine_spread(game_field):
 
 
 def bush_spread():
+    # spreads bushes across the whole map
     bush_cords = []
     for i in range(20):
         num1 = nd.randint(0, FG_consts.SCREEN_HEIGHT - FG_consts.GRASS_HEIGHT * FG_consts.FRAME_HEIGHT)

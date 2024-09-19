@@ -44,17 +44,14 @@ def main(data):
                 scroll.draw_scroll(consts.SCROLL_, state["screen"], (300, 200))
 
                 rows_amount = math.ceil(len(data[state["next_fact"]]) / FG_consts.ONE_LINE_LENGTH)
-                print(rows_amount)
-
 
                 for i in range(rows_amount - 1):
-                    print(data[state["next_fact"]][:50 * i + 1])
-                    FG_screen.draw_message(data[state["next_fact"]][:50 * (i + 1)], 20, FG_consts.NIGHT_COLOR, (500, 450 + i * 14),
+                    FG_screen.draw_message(data[state["next_fact"]][:50 * (i + 1)], 20, FG_consts.NIGHT_COLOR,
+                                           (500, 450 + i * 14),
                                            state["screen"])
-                print(data[state["next_fact"]][50 * (rows_amount - 1):])
-                FG_screen.draw_message(data[state["next_fact"]][50 * (rows_amount - 1):], 20, FG_consts.NIGHT_COLOR, (500, 450 + (rows_amount - 1) * 14),
+                FG_screen.draw_message(data[state["next_fact"]][50 * (rows_amount - 1):], 20, FG_consts.NIGHT_COLOR,
+                                       (500, 450 + (rows_amount - 1) * 14),
                                        state["screen"])
-
 
                 FG_screen.print_lost(state["screen"])
 
