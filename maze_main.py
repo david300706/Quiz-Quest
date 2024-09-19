@@ -18,7 +18,7 @@ def add_qustions_to_grid(grid, questions):
         print(y)
         x = 1
         while grid[y][x] != 0:
-            x = random.randint(1, consts.GRID_WIDTH-1)
+            x = random.randint(1, consts.GRID_WIDTH - 1)
         list_of_loc_to_add.append([y, x])
     # print(list_of_loc_to_add)
     return list_of_loc_to_add
