@@ -82,3 +82,15 @@ def question_input():
     return question_list
 
 
+# main_input()
+def facts_input():
+    done = False
+    facts_list = []
+    while not done:
+        fact = input(
+            "please enter a fact you would like to have in your FLAG GAME if youre done enter 'done': ").lower()
+        if fact == 'done':
+            done = True
+        else:
+            facts_list.append(fact)
+    return facts_list

@@ -1,6 +1,8 @@
+from turtledemo.nim import COLOR
+
 import pygame
 from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER_, QUESTION_MARK, FLAG, FONT_NAME, \
-    SCROLL_, FONT_SIZE, COLOR_TEXT, LOCATION_TEXT, GOLD_COLOR
+    SCROLL_, FONT_SIZE, COLOR_TEXT, LOCATION_TEXT, GOLD_COLOR, LOCATION_TEXT_SCORE
 from consts import convert_index_to_cords
 from scroll import draw_scroll
 
@@ -111,7 +113,7 @@ def draw_massage(text, position, display_surface):
     display_surface.blit(text_surface, position)
 
 
-def draw_question_massage(the_number_of_question, questions, display_surface):
+def draw_question_massage(question, questions, display_surface):
     """
     the function only need the number of the desirable question and answer to draw
     and shy will
@@ -122,18 +124,30 @@ def draw_question_massage(the_number_of_question, questions, display_surface):
     scroll_rect = SCROLL.get_rect(center=(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2))
 
     draw_scroll(SCROLL, display_surface, scroll_rect)
-    questions_to_draw = list(questions.keys())
+#    questions_to_draw = list(questions.keys())
     coordinates_of_text = calculate_centered_positions()
 
-    draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"], display_surface)
-    draw_massage(questions[questions_to_draw[the_number_of_question]][0], coordinates_of_text["answer_0"],
+    draw_massage(question, coordinates_of_text["question"], display_surface)
+    draw_massage(questions[question][0], coordinates_of_text["answer_0"],
                  display_surface)
-    draw_massage(questions[questions_to_draw[the_number_of_question]][1], coordinates_of_text["answer_1"],
+    draw_massage(questions[question][1], coordinates_of_text["answer_1"],
                  display_surface)
-    draw_massage(questions[questions_to_draw[the_number_of_question]][2], coordinates_of_text["answer_2"],
+    draw_massage(questions[question][2], coordinates_of_text["answer_2"],
                  display_surface)
-    draw_massage(questions[questions_to_draw[the_number_of_question]][3], coordinates_of_text["answer_3"],
+    draw_massage(questions[question][3], coordinates_of_text["answer_3"],
                  display_surface)
+
+
+def draw_score(score, screen):
+    message = "score: " + str(score)
+    draw_message__(message, FONT_SIZE, COLOR,
+                   LOCATION_TEXT_SCORE, screen)
+
+
+def draw_message__(message, font_size, color, location, screen):
+    font = pygame.font.SysFont(FONT_NAME, font_size)
+    text_img = font.render(message, True, color)
+    screen.blit(text_img, location)
 
 
 def draw_player(coordinates, display_surface):
