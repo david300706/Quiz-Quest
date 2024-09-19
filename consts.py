@@ -24,19 +24,21 @@ WHITE_CUBE_ = pygame.transform.scale(WHITE_CUBE__, (FRAME_HEIGHT, FRAME_WIDTH))
 PLAYER__ = pygame.image.load("player.png")
 PLAYER_ = pygame.transform.scale(PLAYER__, (FRAME_HEIGHT, FRAME_WIDTH))
 
-SCROLL_ = pygame.image.load("scroll.png")
-SCROLL_ = pygame.transform.scale(SCROLL_, (600, 600))
-
-QUESTION_MARK_ = pygame.image.load("question-mark-sign-icon.png")
+SCROLL_ = pygame.image.load("scroll_good.png")
+SCROLL_ = pygame.transform.scale(SCROLL_, (900,800 ))
+#len(leangt_longest_row)
+QUESTION_MARK_ = pygame.image.load("qustion_mark_rady_to_use.png")
 QUESTION_MARK = pygame.transform.scale(QUESTION_MARK_, (FRAME_HEIGHT, FRAME_WIDTH))
 
-FLAG_ = pygame.image.load("flag_5188014.png")
+FLAG_ = pygame.image.load("flag_3.png")
 FLAG = pygame.transform.scale(FLAG_, (FRAME_HEIGHT, FRAME_WIDTH))
 
 FONT_NAME = "Calibri"
-FONT_SIZE = 80
-COLOR_TEXT = (0,0,0)
+FONT_SIZE = 40
+COLOR_TEXT = (0, 0, 0)
 LOCATION_TEXT = 200
+GOLD_COLOR = (255, 215, 0)
+
 
 def convert_index_to_cords(index_x, index_y):
     cords_y = FRAME_HEIGHT * index_y
