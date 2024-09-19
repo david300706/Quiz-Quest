@@ -41,7 +41,6 @@ def create_maze_grid(questions):
     return grid
 
 
-maze_grid = create_maze_grid(database.questions)
 
 # for x in create_maze_grid():
 #   print(x)
@@ -63,10 +62,16 @@ def inital_the_screen():
     return display_surface
 
 
+questions = {"q1": ["a", "b", "c", "d", "1"], "q2": ["a", "b", "c", "d", "1"], "q3": ["a", "b", "c", "d", "1"]}
+
+maze_grid = create_maze_grid(questions)
+
+
 def maze_main(questions):
     """
     :param questions:  a dict of questions and answers
     """
+
     # initially the question to draw is in index 0
     list_of_kys = list(questions.keys())
     display_surface = inital_the_screen()
@@ -76,26 +81,27 @@ def maze_main(questions):
     been_thare_location = "X"
     while state["game_running"]:
         user_events()
-
         screen_maze.draw_grid(maze_grid, display_surface, state["score"])
         screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]),
                                 display_surface)
         pygame.display.update()
         if the_number_of_question != len(list_of_kys):
             current_question = list_of_kys[the_number_of_question]
+
         if state["player_location"] == [13, 13]:
             state["game_running"] = False
+
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
             "player_location"] != been_thare_location:
-            # print("b", been_thare_location)
             been_thare_location = state["player_location"]
-            screen_maze.draw_question_massage(current_question, questions, display_surface)
+            # screen_maze.draw_question_massage(current_question, questions, display_surface)
 
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and \
             maze_grid[state["player_location"][0]][state["player_location"][1]] != been_thare_location:
 
             been_thare_location = maze_grid[state["player_location"][0]][state["player_location"][1]]
             screen_maze.draw_question_massage(current_question, questions, display_surface)
+            print("been1")
 
             pygame.display.update()
 
@@ -127,7 +133,7 @@ def maze_main(questions):
 
             # screen_maze.draw_score(state["score"], display_surface)
             # FOR TESTING IF THE SCROLL SHOW UP
-            if the_number_of_question <= len(list_of_kys):
+            if the_number_of_question < len(list_of_kys):
                 the_number_of_question += 1
             maze_grid[state["player_location"][0]][state["player_location"][1]] = 0
 
@@ -183,5 +189,6 @@ def user_events():
 
 
 user_events()
-#maze_main(database.questions)
-#maze_main(database.questions)
+maze_main(questions)
+# maze_main(database.questions)
+# maze_main(database.questions)
