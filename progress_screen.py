@@ -51,6 +51,10 @@ def draw_massage(massage, font_size, text_color, location, screen):
 def draw_tk(text):
     root = tk.Tk()
     T = tk.Text(root, height=70, width=150)
-    T.pack()
-    T.insert(tk.END, "Just a text Widget\nin two lines\n")
+    T.grid(row=0, column=0)
+    T.insert(tk.END, text)
+
+    button = tk.Button(root, text="enter game", command=root.destroy)
+    button.grid(row=0, column=1)
+
     tk.mainloop()
