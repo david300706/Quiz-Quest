@@ -39,7 +39,7 @@ state = {"player_location": [2, 2],
          "is_losing": False}
 
 
-def maze_main():
+def maze_main(questions):
     # initially the question to draw is in index 0
     the_number_of_question = 0
     pygame.init()
@@ -54,11 +54,11 @@ def maze_main():
         if state["player_location"] == [12, 12]:
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1] - 1] == 2:
-            screen_maze.draw_question_massage(the_number_of_question)
+            screen_maze.draw_question_massage(the_number_of_question, questions)
             pygame.display.update()
 
             # FOR TESTING IF THE SCROLL SHOW UP
-            pygame.time.wait(1000000)
+            pygame.time.wait(100000)
 
             the_number_of_question += 1
             maze_grid[state["player_location"][0]][state["player_location"][1] - 1] = 0
