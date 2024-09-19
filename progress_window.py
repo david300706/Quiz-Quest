@@ -15,6 +15,7 @@ state = {"is_window_open": True,
          "pop_up_open": False,
          "next_stop": int(progress_consts.DISTANCE)}
 
+
 # state["current_line"] = get_line()
 
 
@@ -38,6 +39,7 @@ def main():
             #                              progress_consts.POP_WINDOW_FONT_SIZE, (0, 0, 0),
             #                              state["soldier_location"], state["screen"])
             ##database.retrieve_data(progress_consts.FILES[state["current_game"]])
+
             maze_main.maze_main()
             state["pop_up_open"] = True
 
@@ -85,6 +87,7 @@ def moving(state):
     print(get_line(state["soldier_location"], progress_consts.STOPS[state["next_stop"]]))
     return get_line(state["soldier_location"], progress_consts.STOPS[state["next_stop"]])
 
+
 def get_line(current, next):
     cx = current[0]
     cy = current[1]
@@ -96,12 +99,6 @@ def get_line(current, next):
     return y
 
 
-
-
-
 main()
-
-
-
 
 main()
