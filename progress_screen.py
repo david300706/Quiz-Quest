@@ -1,3 +1,5 @@
+import time
+
 import progress_consts
 import pygame
 import tkinter as tk
@@ -20,8 +22,9 @@ def draw_images(screen):
 
 
 def draw_soldier(location, screen):
+    location = (location[0] + 60, location[1])
     soldier = progress_consts.SOLDIER_IMG.get_rect(
-        bottomleft=(location))
+        bottomright=(location))
     screen.blit(progress_consts.SOLDIER_IMG, soldier)
 
 
@@ -31,7 +34,11 @@ def draw_screen(state):
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
 
-
+def draw_logo(screen):
+    logo = progress_consts.LOGO_IMAGE.get_rect(topleft=(0, 0))
+    screen.blit(progress_consts.LOGO_IMAGE, logo)
+    pygame.display.flip()
+    time.sleep(3)
 
 
 def draw_tk(text):

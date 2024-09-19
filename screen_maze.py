@@ -5,25 +5,30 @@ from consts import convert_index_to_cords
 from scroll import draw_scroll
 
 # general setup
-pygame.init()
-display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+
 
 # convert
-BLACK_CUBE = BLACK_CUBE_.convert_alpha()
-WHITE_CUBE = WHITE_CUBE_.convert_alpha()
-PLAYER = PLAYER_.convert_alpha()
-SCROLL = SCROLL_.convert_alpha()
+
+# BLACK_CUBE = BLACK_CUBE_.convert_alpha()
+# WHITE_CUBE = WHITE_CUBE_.convert_alpha()
+# PLAYER = PLAYER_.convert_alpha()
+# SCROLL = SCROLL_.convert_alpha()
+
+BLACK_CUBE = BLACK_CUBE_
+WHITE_CUBE = WHITE_CUBE_
+PLAYER = PLAYER_
+SCROLL = SCROLL_
 
 
-def draw_black_cube(coordinates):
+def draw_black_cube(coordinates, display_surface):
     display_surface.blit(BLACK_CUBE, coordinates)
 
 
-def draw_white_cube(coordinates):
+def draw_white_cube(coordinates, display_surface):
     display_surface.blit(WHITE_CUBE, coordinates)
 
 
-def draw_grid(matrix):
+def draw_grid(matrix, display_surface):
     """
     draw the maze on the display_surface
     :param matrix: a 2d matrix of 1 for black , 0 for pass or 2 for question mark , 3 for flag
@@ -34,16 +39,16 @@ def draw_grid(matrix):
             coordinates = convert_index_to_cords(index_x, index_y)
 
             if call == 1:
-                draw_white_cube(coordinates)
+                draw_white_cube(coordinates, display_surface)
             elif call == 0:
-                draw_black_cube(coordinates)
+                draw_black_cube(coordinates, display_surface)
             elif call == 2:
-                draw_question_mark(coordinates)
+                draw_question_mark(coordinates, display_surface)
             elif call == 3:
-                draw_flag(coordinates)
+                draw_flag(coordinates, display_surface)
 
 
-def draw_question_mark(coordinates):
+def draw_question_mark(coordinates, display_surface):
     """
     draw the question mark massage on display_surface
     """
@@ -96,7 +101,7 @@ def calculate_centered_positions():
     }
 
 
-def draw_massage(text, position):
+def draw_massage(text, position, display_surface):
     """
     :param text: the string to draw on screen
     :param position: x and y coordinates
@@ -106,7 +111,7 @@ def draw_massage(text, position):
     display_surface.blit(text_surface, position)
 
 
-def draw_question_massage(the_number_of_question, questions):
+def draw_question_massage(the_number_of_question, questions, display_surface):
     """
     the function only need the number of the desirable question and answer to draw
     and shy will
@@ -120,25 +125,29 @@ def draw_question_massage(the_number_of_question, questions):
     questions_to_draw = list(questions.keys())
     coordinates_of_text = calculate_centered_positions()
 
-    draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][0], coordinates_of_text["answer_0"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][1], coordinates_of_text["answer_1"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][2], coordinates_of_text["answer_2"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][3], coordinates_of_text["answer_3"])
+    draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"], display_surface)
+    draw_massage(questions[questions_to_draw[the_number_of_question]][0], coordinates_of_text["answer_0"],
+                 display_surface)
+    draw_massage(questions[questions_to_draw[the_number_of_question]][1], coordinates_of_text["answer_1"],
+                 display_surface)
+    draw_massage(questions[questions_to_draw[the_number_of_question]][2], coordinates_of_text["answer_2"],
+                 display_surface)
+    draw_massage(questions[questions_to_draw[the_number_of_question]][3], coordinates_of_text["answer_3"],
+                 display_surface)
 
 
-def draw_player(coordinates):
+def draw_player(coordinates, display_surface):
     """
     draw the player on the display_surface
     """
     display_surface.blit(PLAYER, coordinates)
 
 
-def draw_flag(coordinates):
+def draw_flag(coordinates, display_surface):
     display_surface.blit(FLAG, coordinates)
 
 
-def draw_win():
+def draw_win(display_surface):
     """
     Draw a win message on display_surface
     """

@@ -4,6 +4,8 @@ import textwrap
 import pygame
 import time
 
+import FG_main
+import consts
 import database
 import progress_consts
 import progress_screen
@@ -23,6 +25,8 @@ def main():
     pygame.init()
     user_events()
     state["screen"] = progress_screen.screen_settings(progress_consts.SCREEN_SIZE)
+    progress_screen.draw_logo(state["screen"])
+
     while state["is_window_open"]:
         user_events()
 
@@ -34,13 +38,12 @@ def main():
 
         if state["soldier_location"][0] == state["next_stop"]:
             progress_screen.draw_tk(progress_consts.STUDY_INFO[state["current_game"]])
-            maze_main.maze_main(database.retrieve_data("MazeGameData.csv"))
-            state["pop_up_open"] = False
-            state["next_stop"] += progress_consts.DISTANCE
-            state["current_game"] += 1
+            if progress_consts.GAMES[state["current_game"]] == consts.MAZE:
+                maze_main.maze_main(database.retrieve_data(progress_consts.FILES[state["current_game"]]))
+            elif progress_consts.GAMES[state["current_game"]] == consts.FLAG:
+                FG_main.main(database.retrieve_data(progress_consts.FILES[state["current_game"]]))
 
-        if state["current_game"] + 1 > len(progress_consts.GAMES):
-            state["is_window_open"] = False
+            state["pop_up_open"] = True
 
 
 def user_events():
@@ -57,6 +60,29 @@ def solider_moving_right(soldier_position):
     soldier_position = list(soldier_position)
     soldier_position[0] += progress_consts.DISTANCE
     return tuple(soldier_position)
+
+
+# state["soldier_location"] = solider_moving_right(state["soldier_location"])
+# def solider_moving_right(soldier_position):
+#     soldier_position = list(soldier_position)
+#     soldier_position[1] += progress_consts.DISTANCE
+#     return tuple(soldier_position)
+#
+#
+# def draw_massage(massage, font_size, text_color, location):
+#     font = pygame.font.SysFont(progress_consts.FONT_NAME, font_size, bold=True)
+#     text_img = font.render(massage, True, text_color)
+#     text_width = text_img.get_width()
+#     text_height = text_img.get_height()
+#     location_x = location[0] - text_width / 2
+#     location_y = location[1] - text_height / 2
+#     screen.blit(text_img, (location_x, location_y))
+#
+#
+# def pop_up_window(solider_position):
+#     if solider_position[1] == progress_consts.DISTANCE:
+#         draw_massage(progress_consts.STUDY_INFO[0], progress_consts.POP_WINDOW_FONT_SIZE, "black",
+#                      progress_consts.POP_WINDOW_FONT_LOCATION)
 
 
 def moving(state):
@@ -82,4 +108,3 @@ main()
 
 
 
-main()

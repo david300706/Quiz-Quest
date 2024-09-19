@@ -6,6 +6,10 @@ def main_input():
     print("welcome to the Quiz Quest!\n"
           "we are gonna have so much fun!")
     # TODO: print explanation on each game
+    print('Here are explanations of the games: ')
+    print("MAZE GAME: The MAZE GAME is a game that combines fun with a very interesting quiz on a topic of your choice.")
+    print('FLAG GAME: the FLAG GAME is a tactical game with intresting strategy: you have to avoid the mines! and reach the flag to win.')
+
 
     games = []
     add_game = True
@@ -37,7 +41,7 @@ def main_input():
             database.new_maze_csv(data_, f"Maze{i}.csv")
             files.append(f"Maze{i}.csv")
 
-        # elif games[i] == consts.MAZE:
+        elif games[i] == consts.FLAG:
 
 
     return games, games_data, study, files
@@ -76,7 +80,5 @@ def question_input():
             print('invalid number, the correct answer has to be in range ')
         question_list.append(correct_answer_num - 1)
     return question_list
-
-
 
 
