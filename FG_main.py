@@ -58,7 +58,7 @@ def main(data):
 
                 FG_screen.print_lost(state["screen"])
 
-                # time.sleep(2)
+                time.sleep(3)
                 state["next_fact"] += 1
             else:
                 FG_screen.print_lost(state["screen"])
@@ -139,8 +139,8 @@ def user_events():
         #         number_to_save = 0
 
 
-# facts = [
-#     "Honey never spoilsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd.",
-#     "Bananas are berries, but strawberries aren't."]
-#
-# main(facts)
+facts = [
+    "Honey never spoils.",
+    "Bananas are berries, but strawberries aren't."]
+
+main(facts)
