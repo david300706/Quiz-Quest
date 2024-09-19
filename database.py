@@ -4,7 +4,12 @@ questions = {"question1 text": ["option1", "option2", "option3", "option4", "2"]
              "question2 text": ["option1", "option2", "option3", "option4", "2"]}
 
 
-def new_csv(data, name):
+def new_maze_csv(data, name):
+    df = pd.DataFrame(data)
+    df.to_csv(name)
+
+
+def new_flag_csv(data, name):
     df = pd.DataFrame(data)
     df.to_csv(name)
 

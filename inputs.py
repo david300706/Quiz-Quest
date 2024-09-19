@@ -23,27 +23,23 @@ def main_input():
         if is_stop == consts.STOP_INPUT:
             add_game = False
 
+    study = []
+    games_data = []
+    files = []
     for i in range(len(games)):
 
+        data_ = {}
         if games[i] == consts.MAZE:
-            study = []
-            games_data = []
-            files = []
-            data_ = {}
             data, study_data = main_maze_input()
             data_[list(data.keys())[0]] = list(data.values())[0]
             games_data.append(data)
             study.append(study_data)
-            database.new_csv(data_, f"Maze{i}.csv")
+            database.new_maze_csv(data_, f"Maze{i}.csv")
             files.append(f"Maze{i}.csv")
 
-        # elif##3
-        #     data, study_data = main_maze_input()
-        #     data_[list(data.keys())[0]] = list(data.values())[0]
-        #     games_data.append(data)
-        #     study.append(study_data)
-        #     database.new_csv(data_, f"Maze{i}.csv")
-        #     files.append(f"Maze{i}.csv")
+        # elif games[i] == consts.MAZE:
+
+
     return games, games_data, study, files
 
 
@@ -80,3 +76,7 @@ def question_input():
             print('invalid number, the correct answer has to be in range ')
         question_list.append(correct_answer_num - 1)
     return question_list
+
+
+
+

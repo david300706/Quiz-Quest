@@ -13,7 +13,7 @@ GAMES_AMOUNT = len(GAMES)
 POP_UP_COLOR = (209, 237, 212)
 
 SOLDIER_HEIGHT = 200
-SOLDIER_WIDTH = 80
+SOLDIER_WIDTH = 120
 
 BACKGROUND = (17, 150, 34)
 
@@ -29,3 +29,4 @@ IMAGES = [IMAGES_DICT.get(game) for game in GAMES]
 SOLDIER_IMG = pygame.image.load("soldier.png")
 SOLDIER_IMG = pygame.transform.scale(SOLDIER_IMG, (SOLDIER_WIDTH, SOLDIER_HEIGHT))
 
+FLAG_I
