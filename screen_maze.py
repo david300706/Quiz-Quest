@@ -30,7 +30,7 @@ def draw_white_cube(coordinates, display_surface):
     display_surface.blit(WHITE_CUBE, coordinates)
 
 
-def draw_grid(matrix, display_surface):
+def draw_grid(matrix, display_surface, score):
     """
     draw the maze on the display_surface
     :param matrix: a 2d matrix of 1 for black , 0 for pass or 2 for question mark , 3 for flag
@@ -49,6 +49,7 @@ def draw_grid(matrix, display_surface):
             elif call == 3:
                 draw_flag(coordinates, display_surface)
 
+    draw_score(score, display_surface)
 
 def draw_question_mark(coordinates, display_surface):
     """
@@ -140,7 +141,7 @@ def draw_question_massage(question, questions, display_surface):
 
 def draw_score(score, screen):
     message = "score: " + str(score)
-    draw_message__(message, FONT_SIZE, COLOR,
+    draw_message__(message, 50, COLOR,
                    LOCATION_TEXT_SCORE, screen)
 
 
