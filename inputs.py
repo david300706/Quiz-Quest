@@ -17,8 +17,7 @@ def main_input():
         'FLAG GAME: The FLAG GAME is a tactical and strategy-based game that challenges players to navigate through a minefield to reach the flag and win. ')
     print(' The objective is to carefully plan your moves, using logic and observation to avoid hidden mines scattered across the playing field.')
     print()
-    print("MAZE GAME: The MAZE GAME is a game that combines fun with a very interesting quiz on a topic of your choice.")
-    print('FLAG GAME: the FLAG GAME is a tactical game with intresting strategy: you have to avoid the mines! and reach the flag to win.')
+
 
 
     games = []
@@ -105,7 +104,6 @@ def question_input():
     return question_list
 
 
-main_input()
 def facts_input():
     print()
     descr = input("enter initial info to study: ")
