@@ -1,6 +1,7 @@
 import consts
 import database
 
+
 def main_input():
     print("welcome to the Quiz Quest!\n"
           "we are gonna have so much fun!")
@@ -9,28 +10,40 @@ def main_input():
     games = []
     add_game = True
     while add_game:
-        new_game = input(f"enter '{consts.MAZE}' to add maze game: ")
+        new_game = input(f"enter '{consts.MAZE}' to add maze game, '{consts.FLAG_GAME}' to add flag game,  : ")
         while new_game not in consts.GAMES:
             print("invalid input. try again:")
-            new_game = input(f"enter '{consts.MAZE}' to add maze game: ")
+
+            new_game = input(f"enter '{consts.MAZE}' to add maze game', {consts.FLAG_GAME}' to add flag game,  : ")
+
         games.append(new_game)
 
         is_stop = input(f"enough mini games? enter '{consts.STOP_INPUT}' to stop, "
                         "\npress enter to enter more games: ")
         if is_stop == consts.STOP_INPUT:
             add_game = False
-    study = []
-    games_data = []
-    files = []
+
     for i in range(len(games)):
-        data_ = {}
+
         if games[i] == consts.MAZE:
+            study = []
+            games_data = []
+            files = []
+            data_ = {}
             data, study_data = main_maze_input()
             data_[list(data.keys())[0]] = list(data.values())[0]
             games_data.append(data)
             study.append(study_data)
             database.new_csv(data_, f"Maze{i}.csv")
             files.append(f"Maze{i}.csv")
+
+        # elif##3
+        #     data, study_data = main_maze_input()
+        #     data_[list(data.keys())[0]] = list(data.values())[0]
+        #     games_data.append(data)
+        #     study.append(study_data)
+        #     database.new_csv(data_, f"Maze{i}.csv")
+        #     files.append(f"Maze{i}.csv")
     return games, games_data, study, files
 
 
@@ -54,12 +67,16 @@ def question_input():
     question_list.append(question)
     print('Please enter the answers you wish to have in your multiple choice question')
 
-    for i in range(1,5):
+    for i in range(1, 5):
         answer_option = input(f'please Enter answer number {i} for your multiple choice question ')
+
         question_list.append(answer_option)
-    correct_answer_num = int(input('please Enter the number of the correct answer: '))
-    question_list.append(correct_answer_num - 1)
+    input_ = False
+    while not input_:
+        correct_answer_num = int(input('please Enter the number of the correct answer: '))
+        if correct_answer_num < 5 and correct_answer_num > 0:
+            input_ = True
+        else:
+            print('invalid number, the correct answer has to be in range ')
+        question_list.append(correct_answer_num - 1)
     return question_list
-
-
-
