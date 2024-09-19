@@ -3,7 +3,6 @@ import consts
 # import screen
 import pygame
 import random
-
 import database
 import maze_player
 import screen_maze
@@ -16,12 +15,12 @@ def add_qustions_to_grid(grid, questions):
     :param questions:
     :return: the list of cordnites
     """
+    # adds the questions to the grid:
+    # adds the value "2" to a random place there was a "0" before
     list_of_loc_to_add = []
     num_of_qustion_mark_to_add = len(list(questions.keys()))
     for i in range(num_of_qustion_mark_to_add):
-        y = random.sample(range(3, consts.GRID_HEIGHT - 1), 1)
-        y = y[0]
-        print(y)
+        y = random.randint(3, consts.GRID_HEIGHT - 1)
         x = 1
         while grid[y][x] != 0:
             x = random.randint(1, consts.GRID_WIDTH - 1)
@@ -41,7 +40,6 @@ def create_maze_grid(questions):
     list_of_loc = add_qustions_to_grid(grid, questions)
     for i in list_of_loc:
         grid[i[0]][i[1]] = 2
-        print(grid)
     return grid
 
 

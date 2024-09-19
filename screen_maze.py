@@ -140,18 +140,21 @@ def draw_question_massage(question, questions, display_surface):
 
 
 def draw_score(score, screen):
+    # draws the score(how many questions u got right)
     message = "score: " + str(score)
     draw_message__(message, 50, COLOR,
                    LOCATION_TEXT_SCORE, screen)
 
 
 def draw_message__(message, font_size, color, location, screen):
+    # puts the message on the screen that we choose
     font = pygame.font.SysFont(FONT_NAME, font_size)
     text_img = font.render(message, True, color)
     screen.blit(text_img, location)
 
 
 def draw_player(coordinates, display_surface):
+
     """
     draw the player on the display_surface
     """
@@ -159,6 +162,8 @@ def draw_player(coordinates, display_surface):
 
 
 def draw_flag(coordinates, display_surface):
+    # draws the flag on the screen
+
     display_surface.blit(FLAG, coordinates)
 
 
