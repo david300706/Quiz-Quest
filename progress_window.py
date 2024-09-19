@@ -1,6 +1,8 @@
 # import progress_screen
 import pygame
 import time
+
+import database
 import progress_consts
 import progress_screen
 import maze_main
@@ -28,9 +30,10 @@ def main():
             time.sleep(0.01)
 
         if state["soldier_location"][0] == state["next_stop"]:
-            progress_screen.draw_massage(progress_consts.STUDY_INFO[state["current_game"]],
-                                         progress_consts.POP_WINDOW_FONT_SIZE, (0, 0, 0),
-                                         state["soldier_location"], state["screen"])
+            progress_screen.draw_tk(progress_consts.STUDY_INFO[state["current_game"]])
+            # progress_screen.draw_massage(progress_consts.STUDY_INFO[state["current_game"]],
+            #                              progress_consts.POP_WINDOW_FONT_SIZE, (0, 0, 0),
+            #                              state["soldier_location"], state["screen"])
             state["pop_up_open"] = True
 
 
@@ -40,8 +43,7 @@ def user_events():
             state["is_window_open"] = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE and state["pop_up_open"]:
-                print("eeeeeeeeeeeeeeeeeeeeeeeeeeeee")
-                maze_main.maze_main()
+                maze_main.maze_main(database.retrieve_data(progress_consts.FILES[state["current_game"]]))
                 state["enter_game"] = True
 
 
@@ -92,7 +94,7 @@ def get_line(current, next):
 
 
 
-
+main()
 
 
 

@@ -1,6 +1,6 @@
 import progress_consts
 import pygame
-
+import tkinter as tk
 SCREEN_SIZE = (1000, 1000)
 pygame.init()
 
@@ -48,3 +48,9 @@ def draw_massage(massage, font_size, text_color, location, screen):
     pygame.display.flip()
 
 
+def draw_tk(text):
+    root = tk.Tk()
+    T = tk.Text(root, height=70, width=150)
+    T.pack()
+    T.insert(tk.END, "Just a text Widget\nin two lines\n")
+    tk.mainloop()
