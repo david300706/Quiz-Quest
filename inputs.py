@@ -19,17 +19,19 @@ def main_input():
                         "\npress enter to enter more games: ")
         if is_stop == consts.STOP_INPUT:
             add_game = False
-    data_ = {}
     study = []
     games_data = []
-    for game in games:
-        if game == consts.MAZE:
+    files = []
+    for i in range(len(games)):
+        data_ = {}
+        if games[i] == consts.MAZE:
             data, study_data = main_maze_input()
             data_[list(data.keys())[0]] = list(data.values())[0]
             games_data.append(data)
             study.append(study_data)
-    database.new_csv(data_)
-    return games, games_data, study
+            database.new_csv(data_, f"Maze{i}.csv")
+            files.append(f"Maze{i}.csv")
+    return games, games_data, study, files
 
 
 def main_maze_input():
