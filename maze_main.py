@@ -39,24 +39,38 @@ state = {"player_location": [2, 2],
          "is_losing": False}
 
 
+def inital_the_screen():
+    pygame.init()
+    display_surface = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
+    return display_surface
+
+
 def maze_main(questions):
     """
     :param questions:  a dict of questions and answers
     """
     # initially the question to draw is in index 0
+    display_surface = inital_the_screen()
     the_number_of_question = 0
     pygame.init()
     user_events()
+    been_thare_location = "X"
     been_there_loc = "X"
     while state["game_running"]:
         user_events()
 
-        screen_maze.draw_grid(maze_grid)
-        screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]))
+        screen_maze.draw_grid(maze_grid, display_surface)
+        screen_maze.draw_player(consts.convert_index_to_cords(state["player_location"][0], state["player_location"][1]),display_surface)
         pygame.display.update()
 
         if state["player_location"] == [12, 12]:
             state["game_running"] = False
+        print("a", been_thare_location)
+        if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
+            "player_location"] != been_thare_location:
+            print("b", been_thare_location)
+            been_thare_location = state["player_location"]
+            screen_maze.draw_question_massage(the_number_of_question, questions,display_surface)
 
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and \
                 maze_grid[state["player_location"][0]][state["player_location"][1]] != been_there_loc:
@@ -133,4 +147,5 @@ def user_events():
 
 
 user_events()
+maze_main(database.questions)
 maze_main(database.questions)

@@ -24,15 +24,10 @@ def draw_soldier(location, screen):
         bottomleft=(location))
     screen.blit(progress_consts.SOLDIER_IMG, soldier)
 
-def draw_stops(screen):
-    for stop in progress_consts.STOPS:
-        pygame.draw.circle(screen, (0,0,0), tuple(stop), 10)
-
 
 def draw_screen(state):
     state["screen"].fill(progress_consts.BACKGROUND)
     draw_images(state["screen"])
-    # draw_stops(state["screen"])
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
 
@@ -51,6 +46,10 @@ def draw_massage(massage, font_size, text_color, location, screen):
 def draw_tk(text):
     root = tk.Tk()
     T = tk.Text(root, height=70, width=150)
-    T.pack()
-    T.insert(tk.END, "Just a text Widget\nin two lines\n")
+    T.grid(row=0, column=0)
+    T.insert(tk.END, text)
+
+    button = tk.Button(root, text="enter game", command=root.destroy)
+    button.grid(row=0, column=1)
+
     tk.mainloop()

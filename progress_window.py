@@ -1,4 +1,6 @@
 # import progress_screen
+import textwrap
+
 import pygame
 import time
 
@@ -13,7 +15,9 @@ state = {"is_window_open": True,
          "pop_up_open": False,
          "next_stop": int(progress_consts.DISTANCE)}
 
+
 # state["current_line"] = get_line()
+
 
 
 def main():
@@ -27,13 +31,16 @@ def main():
             state["soldier_location"] = (round(state["soldier_location"][0] + 1), state["soldier_location"][1])
             # state["soldier_location"][1] = moving(state)
             progress_screen.draw_screen(state)
-            time.sleep(0.01)
+            time.sleep(0.005)
 
         if state["soldier_location"][0] == state["next_stop"]:
             progress_screen.draw_tk(progress_consts.STUDY_INFO[state["current_game"]])
             # progress_screen.draw_massage(progress_consts.STUDY_INFO[state["current_game"]],
             #                              progress_consts.POP_WINDOW_FONT_SIZE, (0, 0, 0),
             #                              state["soldier_location"], state["screen"])
+            ##database.retrieve_data(progress_consts.FILES[state["current_game"]])
+
+            maze_main.maze_main()
             state["pop_up_open"] = True
 
 
@@ -43,7 +50,7 @@ def user_events():
             state["is_window_open"] = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE and state["pop_up_open"]:
-                maze_main.maze_main(database.retrieve_data(progress_consts.FILES[state["current_game"]]))
+                # maze_main.maze_main(database.retrieve_data(progress_consts.FILES[state["current_game"]]))
                 state["enter_game"] = True
 
 
@@ -80,6 +87,7 @@ def moving(state):
     print(get_line(state["soldier_location"], progress_consts.STOPS[state["next_stop"]]))
     return get_line(state["soldier_location"], progress_consts.STOPS[state["next_stop"]])
 
+
 def get_line(current, next):
     cx = current[0]
     cy = current[1]
@@ -91,12 +99,6 @@ def get_line(current, next):
     return y
 
 
-
-
-
 main()
-
-
-
 
 main()
