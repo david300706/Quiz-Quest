@@ -1,8 +1,10 @@
 import progress_consts
 import pygame
 import tkinter as tk
+
 SCREEN_SIZE = (1000, 1000)
 pygame.init()
+
 
 def screen_settings(size):
     screen = pygame.display.set_mode(size)
@@ -30,6 +32,7 @@ def draw_screen(state):
     draw_images(state["screen"])
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
+
 
 def draw_massage(massage, font_size, text_color, location, screen):
     screen.fill(progress_consts.POP_UP_COLOR)
