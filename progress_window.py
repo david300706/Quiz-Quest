@@ -1,4 +1,6 @@
 # import progress_screen
+import textwrap
+
 import pygame
 import time
 
@@ -15,6 +17,7 @@ state = {"is_window_open": True,
 
 
 # state["current_line"] = get_line()
+
 
 
 def main():
