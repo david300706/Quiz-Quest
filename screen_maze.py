@@ -3,6 +3,7 @@ from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER
     SCROLL_, FONT_SIZE, COLOR_TEXT, LOCATION_TEXT, GOLD_COLOR
 from consts import convert_index_to_cords
 from database import questions
+from scroll import draw_scroll
 
 # general setup
 pygame.init()
@@ -48,10 +49,6 @@ def draw_question_mark(coordinates):
     draw the question mark massage on display_surface
     """
     display_surface.blit(QUESTION_MARK, coordinates)
-
-
-def draw_scroll():
-    display_surface.blit(SCROLL, (WINDOW_WIDTH // 2 - 300, WINDOW_HEIGHT // 2 - 300))
 
 
 def get_center_position(text_surface):
@@ -117,7 +114,7 @@ def draw_question_massage(the_number_of_question):
     draw a question and the 3 answers passable on display_surface
     the_number_of_question: an int representing the index of the question
     """
-    draw_scroll()
+    draw_scroll(SCROLL, display_surface,(WINDOW_WIDTH // 2 - 300, WINDOW_HEIGHT // 2 - 300))
     questions_to_draw = list(questions.keys())
     coordinates_of_text = calculate_centered_positions()
     draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"])
