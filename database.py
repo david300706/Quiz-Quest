@@ -1,6 +1,6 @@
 import pandas as pd
 
-questions = {"question1 textgggggggggggggggggggggggggggggggggggggggggggggggggggggg": ["option1", "option2", "option3", "option4", "2"],
+questions = {"question1 text": ["option1", "option2", "option3", "option4", "2"],
              "question2 text": ["option1", "option2", "option3", "option4", "2"]}
 
 

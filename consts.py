@@ -34,7 +34,7 @@ FLAG_ = pygame.image.load("flag_3.png")
 FLAG = pygame.transform.scale(FLAG_, (FRAME_HEIGHT, FRAME_WIDTH))
 
 FONT_NAME = "Calibri"
-FONT_SIZE = 40
+FONT_SIZE = 20
 COLOR_TEXT = (0, 0, 0)
 LOCATION_TEXT = 200
 GOLD_COLOR = (255, 215, 0)

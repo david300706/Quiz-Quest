@@ -2,7 +2,6 @@ import pygame
 from consts import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK_CUBE_, WHITE_CUBE_, PLAYER_, QUESTION_MARK, FLAG, FONT_NAME, \
     SCROLL_, FONT_SIZE, COLOR_TEXT, LOCATION_TEXT, GOLD_COLOR
 from consts import convert_index_to_cords
-from database import questions
 from scroll import draw_scroll
 
 # general setup
@@ -74,10 +73,10 @@ def calculate_centered_positions():
     """
     # Define vertical padding between the question and the answers
     vertical_padding = 20
-    question_offset = 60
+    question_offset = 40
 
     move_up_offset = -100
-    move_left_offset = - 130
+    move_left_offset = - 180
     question_y = (WINDOW_HEIGHT // 2) - FONT_SIZE - question_offset
     # Calculate the y position of each answer, spaced
     answer_0_y = (WINDOW_HEIGHT // 2)
@@ -107,7 +106,7 @@ def draw_massage(text, position):
     display_surface.blit(text_surface, position)
 
 
-def draw_question_massage(the_number_of_question):
+def draw_question_massage(the_number_of_question, questions):
     """
     the function only need the number of the desirable question and answer to draw
     and shy will
@@ -120,6 +119,7 @@ def draw_question_massage(the_number_of_question):
     draw_scroll(SCROLL, display_surface, scroll_rect)
     questions_to_draw = list(questions.keys())
     coordinates_of_text = calculate_centered_positions()
+
     draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"])
     draw_massage(questions[questions_to_draw[the_number_of_question]][0], coordinates_of_text["answer_0"])
     draw_massage(questions[questions_to_draw[the_number_of_question]][1], coordinates_of_text["answer_1"])
