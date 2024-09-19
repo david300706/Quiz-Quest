@@ -35,7 +35,8 @@ def main_input():
         data_ = {}
         if games[i] == consts.MAZE:
             data, study_data = main_maze_input()
-            data_[list(data.keys())[0]] = list(data.values())[0]
+            for j in list(data.keys()):
+                data_[j] = data.get(j)
             games_data.append(data)
             study.append(study_data)
             database.new_maze_csv(data_, f"Maze{i + 1}.csv")
@@ -91,6 +92,7 @@ def question_input():
 
 # main_input()
 def facts_input():
+    print()
     descr = input("enter initial info to study: ")
     print()
     done = False

@@ -18,23 +18,22 @@ def retrieve_data(name):
     df = pd.read_csv(name)
     df.pop("Unnamed: 0")
     df = df.to_dict()
-    print("ggggggggggggggggg")
-    print(df)
+
 
     if name[:4] == "Maze":
         data = {}
         for key in df.keys():
+
             answers = list(df.get(key).values())
             answers[4] = int(answers[4])
             answers[4] += 1
             answers[4] = str(answers[4])
-            data[key] = answers
+            ans = [str(i) for i in answers]
+            data[key] = ans
 
-        print(data)
         return data
 
     elif name[:4] == "Flag":
-        print(df["facts"])
         return df["facts"]
 
 

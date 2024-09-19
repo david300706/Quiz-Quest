@@ -37,4 +37,4 @@ SOLDIER_IMG = pygame.transform.scale(SOLDIER_IMG, (SOLDIER_WIDTH, SOLDIER_HEIGHT
 
 
 LOGO_IMAGE = pygame.image.load("preview.webp")
-LOGO_IMAGE = pygame.transform.scale(LOGO_IMAGE, SCREEN_SIZE)
+LOGO_IMAGE = pygame.transform.scale(LOGO_IMAGE, (250, 250))

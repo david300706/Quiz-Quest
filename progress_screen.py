@@ -1,5 +1,6 @@
 import time
 
+import consts
 import progress_consts
 import pygame
 import tkinter as tk
@@ -18,7 +19,14 @@ def draw_maze_image(location, screen):
 
 def draw_images(screen):
     for i in range(len(progress_consts.IMAGES)):
-        draw_maze_image(((i + 1) * progress_consts.DISTANCE, progress_consts.WINDOW_WIDTH / 2), screen)
+        if progress_consts.GAMES[i] == consts.MAZE:
+            draw_maze_image(((i + 1) * progress_consts.DISTANCE, progress_consts.WINDOW_WIDTH / 2), screen)
+        elif progress_consts.GAMES[i] == consts.FLAG_GAME:
+            draw_flag_image(((i + 1) * progress_consts.DISTANCE, progress_consts.WINDOW_WIDTH / 2), screen)
+def draw_flag_image(location, screen):
+    img = progress_consts.FLAG_IMAGE.get_rect(topleft=(location))
+    screen.blit(progress_consts.FLAG_IMAGE, img)
+
 
 
 def draw_soldier(location, screen):
@@ -32,14 +40,14 @@ def draw_screen(state):
     state["screen"].fill(progress_consts.BACKGROUND)
     draw_images(state["screen"])
     draw_soldier(state["soldier_location"], state["screen"])
+    draw_logo(state["screen"])
     pygame.display.flip()
 
 
 def draw_logo(screen):
     logo = progress_consts.LOGO_IMAGE.get_rect(topleft=(0, 0))
     screen.blit(progress_consts.LOGO_IMAGE, logo)
-    pygame.display.flip()
-    time.sleep(6)
+
 
 
 def draw_tk(text):

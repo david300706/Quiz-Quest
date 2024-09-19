@@ -25,13 +25,12 @@ def main():
     pygame.init()
     user_events()
     state["screen"] = progress_screen.screen_settings(progress_consts.SCREEN_SIZE)
-    progress_screen.draw_logo(state["screen"])
 
     while state["is_window_open"]:
         user_events()
 
         if not state["pop_up_open"]:
-            state["soldier_location"] = (round(state["soldier_location"][0] + 1), state["soldier_location"][1])
+            state["soldier_location"] = (round(state["soldier_location"][0] + 0.6), state["soldier_location"][1])
             # state["soldier_location"][1] = moving(state)
             progress_screen.draw_screen(state)
             time.sleep(0.005)
@@ -44,6 +43,11 @@ def main():
                 FG_main.main(database.retrieve_data(progress_consts.FILES[state["current_game"]]))
 
             state["pop_up_open"] = False
+            state["next_stop"] += int(progress_consts.DISTANCE)
+            state["current_game"] += 1
+
+        if state["soldier_location"][0] > progress_consts.WINDOW_WIDTH - 10:
+            state["is_window_open"] = False
 
 
 def user_events():
@@ -60,19 +64,6 @@ def solider_moving_right(soldier_position):
     soldier_position = list(soldier_position)
     soldier_position[0] += progress_consts.DISTANCE
     return tuple(soldier_position)
-
-
-
-def get_line(current, next):
-    cx = current[0]
-    cy = current[1]
-    nx = next[0]
-    ny = next[1]
-    M = (cy - ny) / (cx - nx)
-    b = ny - M * nx
-    y = M * cx + 1 + b
-    return y
-
 
 
 
