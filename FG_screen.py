@@ -4,7 +4,7 @@ import pygame
 import FG_consts
 import consts
 from database import questions
-from screen_maze import calculate_centered_positions, draw_massage, SCROLL, display_surface
+from screen_maze import calculate_centered_positions, draw_massage, SCROLL
 
 
 def screen():
@@ -121,7 +121,7 @@ def draw_injury(location, screen):
     screen.blit(FG_consts.INJURY_IMAGE, injury)
 
 
-def draw_question_massage(the_number_of_question, questions, screen):
+def draw_question_massage(question, questions, screen):
     """
     the function only need the number of the desirable question and answer to draw
     and shy will
@@ -134,8 +134,8 @@ def draw_question_massage(the_number_of_question, questions, screen):
     scroll.draw_scroll(SCROLL, screen, scroll_rect)
     questions_to_draw = list(questions.keys())
     coordinates_of_text = calculate_centered_positions()
-    draw_massage(questions_to_draw[the_number_of_question], coordinates_of_text["question"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][0], coordinates_of_text["answer_0"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][1], coordinates_of_text["answer_1"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][2], coordinates_of_text["answer_2"])
-    draw_massage(questions[questions_to_draw[the_number_of_question]][3], coordinates_of_text["answer_3"])
+    draw_massage(questions[question], coordinates_of_text["question"])
+    draw_massage(questions[question][0], coordinates_of_text["answer_0"])
+    draw_massage(questions[question][1], coordinates_of_text["answer_1"])
+    draw_massage(questions[question][2], coordinates_of_text["answer_2"])
+    draw_massage(questions[question][3], coordinates_of_text["answer_3"])
