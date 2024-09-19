@@ -1,9 +1,8 @@
 import progress_consts
 import pygame
-
+import tkinter as tk
 SCREEN_SIZE = (1000, 1000)
 pygame.init()
-
 
 def screen_settings(size):
     screen = pygame.display.set_mode(size)
@@ -32,7 +31,6 @@ def draw_screen(state):
     draw_soldier(state["soldier_location"], state["screen"])
     pygame.display.flip()
 
-
 def draw_massage(massage, font_size, text_color, location, screen):
     screen.fill(progress_consts.POP_UP_COLOR)
     font = pygame.font.SysFont(progress_consts.FONT_NAME, font_size, bold=True)
@@ -43,3 +41,11 @@ def draw_massage(massage, font_size, text_color, location, screen):
     location_y = location[1] - text_height / 2
     screen.blit(text_img, (location_x, location_y))
     pygame.display.flip()
+
+
+def draw_tk(text):
+    root = tk.Tk()
+    T = tk.Text(root, height=70, width=150)
+    T.pack()
+    T.insert(tk.END, "Just a text Widget\nin two lines\n")
+    tk.mainloop()

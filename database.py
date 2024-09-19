@@ -1,16 +1,16 @@
 import pandas as pd
 
-questions = {"question1 text": ["option1", "option2", "option3", "option4", "2"],
+questions = {"question1 textgggggggggggggggggggggggggggggggggggggggggggggggggggggg": ["option1", "option2", "option3", "option4", "2"],
              "question2 text": ["option1", "option2", "option3", "option4", "2"]}
 
 
-def new_csv(data):
-    df = pd.DataFrame(questions)
-    df.to_csv("MazeGameData.csv")
+def new_csv(data, name):
+    df = pd.DataFrame(data)
+    df.to_csv(name)
 
 
-def retrieve_data():
-    df = pd.read_csv("MazeGameData.csv")
+def retrieve_data(name):
+    df = pd.read_csv(name)
     df.pop("Unnamed: 0")
     df = df.to_dict()
     data = {}
@@ -19,7 +19,7 @@ def retrieve_data():
     return data
 
 
-new_csv(questions)
-print(retrieve_data())
+# new_csv(questions)
+# print(retrieve_data())
 
 
