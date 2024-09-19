@@ -13,12 +13,14 @@ def add_qustions_to_grid(grid, questions):
     list_of_loc_to_add = []
     num_of_qustion_mark_to_add = len(list(questions.keys()))
     for i in range(num_of_qustion_mark_to_add):
-        y = random.randint(3, consts.GRID_HEIGHT - 1)
+        y = random.sample(range(3, consts.GRID_HEIGHT - 1), 1)
+        y = y[0]
+        print(y)
         x = 1
         while grid[y][x] != 0:
             x = random.randint(1, consts.GRID_WIDTH - 1)
         list_of_loc_to_add.append([y, x])
-    print(list_of_loc_to_add)
+    # print(list_of_loc_to_add)
     return list_of_loc_to_add
 
 
@@ -75,7 +77,7 @@ def maze_main(questions):
             state["game_running"] = False
         if maze_grid[state["player_location"][0]][state["player_location"][1]] == 2 and state[
             "player_location"] != been_thare_location:
-            print("b", been_thare_location)
+            # print("b", been_thare_location)
             been_thare_location = state["player_location"]
             screen_maze.draw_question_massage(current_question, questions, display_surface)
 
@@ -125,6 +127,7 @@ def maze_main(questions):
             screen_maze.draw_win(display_surface)
             pygame.display.update()
             pygame.time.wait(1000)
+
 
 def user_events():
     pygame.init()
